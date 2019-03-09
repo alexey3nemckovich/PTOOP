@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using GraphicsEditor.Shapes;
 using GraphicsEditor.ShapeRenderers;
 using GraphicsEditor.ShapeCreators;
 

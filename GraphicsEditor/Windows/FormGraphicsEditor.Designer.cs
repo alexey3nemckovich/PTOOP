@@ -1,4 +1,4 @@
-﻿namespace GraphicsEditor
+﻿namespace GraphicsEditor.Windows
 {
     partial class FormGraphicsEditor
     {

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GraphicsEditor
 {
-    public partial class FormShape : Form
+    public partial class FormShapes : Form
     {
-        public FormShape()
+        public FormShapes()
         {
             InitializeComponent();
         }

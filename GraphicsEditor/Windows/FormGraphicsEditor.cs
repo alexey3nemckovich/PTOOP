@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using System.Collections.Generic;
 
-namespace GraphicsEditor
+namespace GraphicsEditor.Windows
 {
     public partial class FormGraphicsEditor : Form
     {
@@ -14,17 +14,20 @@ namespace GraphicsEditor
 
         private void toolStripButtonAddShape_Click(object sender, System.EventArgs e)
         {
-
+            FormAddShape formAddShape = new FormAddShape();
+            formAddShape.ShowDialog();
         }
 
         private void toolStripButtonShapes_Click(object sender, System.EventArgs e)
         {
-
+            FormShapes formShapes = new FormShapes();
+            formShapes.ShowDialog();
         }
 
         private void toolStripButtonSettings_Click(object sender, System.EventArgs e)
         {
-
+            FormSettings formSettings = new FormSettings();
+            formSettings.ShowDialog();
         }
 
         public FormGraphicsEditor()

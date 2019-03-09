@@ -65,11 +65,11 @@
     <Compile Include="Windows\FormSettings.Designer.cs">
       <DependentUpon>FormSettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="Windows\FormShape.cs">
+    <Compile Include="Windows\FormShapes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Windows\FormShape.Designer.cs">
-      <DependentUpon>FormShape.cs</DependentUpon>
+    <Compile Include="Windows\FormShapes.Designer.cs">
+      <DependentUpon>FormShapes.cs</DependentUpon>
     </Compile>
     <Compile Include="ShapeRenderers\StandardEllipseRenderer.cs" />
     <Compile Include="ShapeRenderers\StandardLineRenderer.cs" />
@@ -92,6 +92,9 @@
     <Compile Include="Shapes\Rectangle.cs" />
     <Compile Include="Shapes\Square.cs" />
     <Compile Include="Shapes\Triangle.cs" />
+    <EmbeddedResource Include="Windows\FormAddShape.resx">
+      <DependentUpon>FormAddShape.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\FormGraphicsEditor.resx">
       <DependentUpon>FormGraphicsEditor.cs</DependentUpon>
     </EmbeddedResource>
@@ -104,6 +107,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Windows\FormSettings.resx">
+      <DependentUpon>FormSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\FormShapes.resx">
+      <DependentUpon>FormShapes.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
