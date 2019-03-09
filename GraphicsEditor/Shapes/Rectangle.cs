@@ -4,21 +4,21 @@ using System;
 
 namespace GraphicsEditor.Shapes
 {
-    class Rectangle : FilledShape
+    class Rectangle : Shape
     {
-        protected int length;
-        protected int width;
+        private int width;
+        private int height;
 
         public Rectangle()
         {
 
         }
 
-        public Rectangle(Point point1, Point point2, Color penColor, Color brushColor)
-            : base(new List<Point>() { point1, point2 }, penColor, brushColor)
+        public Rectangle(List<Point> points, Color penColor, Color brushColor)
+            : base(points, penColor, brushColor)
         {
-            this.length = Math.Abs(point1.X - point2.X);
-            this.width = Math.Abs(point1.Y - point2.Y);
+            this.width = Math.Abs(Points[0].X - Points[1].X);
+            this.height = Math.Abs(Points[0].Y - Points[1].Y);
         }
 
         public override int DefiningPointsCount()
@@ -26,16 +26,16 @@ namespace GraphicsEditor.Shapes
             return 2;
         }
 
-        public int Length
-        {
-            get { return length; }
-            set { length = value; }
-        }
-
         public int Width
         {
             get { return width; }
             set { width = value; }
+        }
+
+        public int Height
+        {
+            get { return height; }
+            set { height = value; }
         }
     }
 }

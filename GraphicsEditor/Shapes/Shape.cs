@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Drawing;
-
+﻿using System.Drawing;
+using System.Collections.Generic;
 
 namespace GraphicsEditor.Shapes
 {
@@ -11,10 +10,11 @@ namespace GraphicsEditor.Shapes
 
         }
 
-        public Shape(List<Point> points, Color penColor)
+        public Shape(List<Point> points, Color penColor, Color brushColor)
         {
             this.Points = points;
             this.Pen = new Pen(penColor);
+            this.Brush = new SolidBrush(brushColor);
         }
 
         public abstract int DefiningPointsCount();
@@ -22,5 +22,7 @@ namespace GraphicsEditor.Shapes
         public List<Point> Points { get; set; }
 
         public Pen Pen { get; set; }
+
+        public Brush Brush { get; set; }
     }
 }

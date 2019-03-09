@@ -27,8 +27,8 @@ namespace GraphicsEditor.ShapeRenderers
                 rectangle.Brush,
                 rectangle.Points[0].X,
                 rectangle.Points[0].Y,
-                rectangle.Length,
-                rectangle.Width);
+                rectangle.Width,
+                rectangle.Height);
         }
     }
 }

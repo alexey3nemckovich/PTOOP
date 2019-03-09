@@ -26,8 +26,8 @@ namespace GraphicsEditor.ShapeRenderers
                 ellipse.Brush,
                 ellipse.Points[0].X,
                 ellipse.Points[0].Y,
-                ellipse.Length,
-                ellipse.Width);
+                ellipse.Width,
+                ellipse.Height);
         }
     }
 }

@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Drawing;
+using System.Collections.Generic;
 
 namespace GraphicsEditor.Shapes
 {
     class Circle : Ellipse
     {
-        public Circle(Point point1, Point point2, Color brushColor, Color penColor)
-            : base(point1, point2, brushColor, penColor)
+        public Circle(List<Point> points, Color penColor, Color brushColor)
+            : base(points, penColor, brushColor)
         {
-            this.width = Math.Abs(point1.X - point2.X);
+            this.Width = Math.Min(this.Height, this.Width);
+            this.Height = this.Width;
         }
 
         public override int DefiningPointsCount()

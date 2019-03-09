@@ -46,6 +46,13 @@
   <ItemGroup>
     <Compile Include="Engine\Editor.cs" />
     <Compile Include="Engine\Settings.cs" />
+    <Compile Include="ShapeCreators\CircleCreator.cs" />
+    <Compile Include="ShapeCreators\EllipseCreator.cs" />
+    <Compile Include="ShapeCreators\IShapeCreator.cs" />
+    <Compile Include="ShapeCreators\LineCreator.cs" />
+    <Compile Include="ShapeCreators\RectangleCreator.cs" />
+    <Compile Include="ShapeCreators\SquareCreator.cs" />
+    <Compile Include="ShapeCreators\TriangleCreator.cs" />
     <Compile Include="Windows\FormAddShape.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,11 +86,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shapes\Circle.cs" />
-    <Compile Include="Shapes\FilledShape.cs" />
+    <Compile Include="Shapes\Shape.cs" />
     <Compile Include="Shapes\Ellipse.cs" />
     <Compile Include="Shapes\Line.cs" />
     <Compile Include="Shapes\Rectangle.cs" />
-    <Compile Include="Shapes\Shape.cs" />
     <Compile Include="Shapes\Square.cs" />
     <Compile Include="Shapes\Triangle.cs" />
     <EmbeddedResource Include="Windows\FormGraphicsEditor.resx">

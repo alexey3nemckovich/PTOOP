@@ -6,37 +6,46 @@ namespace GraphicsEditor.Engine
 {
     class Settings
     {
-        private Dictionary<System.Guid, IShapeRenderer> shapeRenderers;
+        class ShapeTypeInfo
+        {
+            public IShapeRenderer Renderer { get; set; }
+
+
+        }
+
+        public List<IShapeRenderer> ShapeRenderers { get; set; }
+
+        private Dictionary<string, ShapeTypeInfo> shapeTypesInfoMap;
 
         public Settings()
         {
-            shapeRenderers = new Dictionary<System.Guid, IShapeRenderer>();
+            shapeTypesInfoMap = new Dictionary<string, ShapeTypeInfo>();
 
             Reset();
         }
 
         public void Reset()
         {
-            shapeRenderers.Clear();
+            shapeTypesInfoMap.Clear();
 
-            SetRendererForShapeType(typeof(Line).GUID, StandardLineRenderer.getInstance());
-            SetRendererForShapeType(typeof(Rectangle).GUID, StandardRectangleRenderer.getInstance());
-            SetRendererForShapeType(typeof(Square).GUID, StandardRectangleRenderer.getInstance());
-            SetRendererForShapeType(typeof(Ellipse).GUID, StandardEllipseRenderer.getInstance());
-            SetRendererForShapeType(typeof(Circle).GUID, StandardEllipseRenderer.getInstance());
-            SetRendererForShapeType(typeof(Triangle).GUID, StandardTriangleRenderer.getInstance());
+            SetRendererForShapeType(typeof(Line).Name, StandardLineRenderer.getInstance());
+            SetRendererForShapeType(typeof(Rectangle).Name, StandardRectangleRenderer.getInstance());
+            SetRendererForShapeType(typeof(Square).Name, StandardRectangleRenderer.getInstance());
+            SetRendererForShapeType(typeof(Ellipse).Name, StandardEllipseRenderer.getInstance());
+            SetRendererForShapeType(typeof(Circle).Name, StandardEllipseRenderer.getInstance());
+            SetRendererForShapeType(typeof(Triangle).Name, StandardTriangleRenderer.getInstance());
         }
 
-        public void SetRendererForShapeType(System.Guid shapeTypeGuid, IShapeRenderer shapeRenderer)
+        public void SetRendererForShapeType(string shapeTypeName, IShapeRenderer shapeRenderer)
         {
-            shapeRenderers[shapeTypeGuid] = shapeRenderer;
+            shapeTypesInfoMap[shapeTypeName].Renderer = shapeRenderer;
         }
 
-        public IShapeRenderer GetRendererForShapeType(System.Guid shapeTypeGuid)
+        public IShapeRenderer GetRendererForShapeType(string shapeTypeName)
         {
-            if(shapeRenderers.ContainsKey(shapeTypeGuid))
+            if(shapeTypesInfoMap.ContainsKey(shapeTypeName))
             {
-                return shapeRenderers[shapeTypeGuid];
+                return shapeTypesInfoMap[shapeTypeName].Renderer;
             }
             else
             {

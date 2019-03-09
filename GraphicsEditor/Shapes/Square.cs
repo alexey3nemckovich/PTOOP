@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Drawing;
+using System.Collections.Generic;
 
 namespace GraphicsEditor.Shapes
 {
     class Square : Rectangle
     {
-        public Square(Point point1, Point point2, Color brushColor, Color penColor) 
-            : base(point1, point2, brushColor, penColor)
+        public Square(List<Point> points, Color penColor, Color brushColor) 
+            : base(points, penColor, brushColor)
         {
-            this.width = Math.Abs(point1.X - point2.X);
+            this.Height = Math.Min(this.Height, this.Width);
+            this.Width = this.Height;
         }
 
         public override int DefiningPointsCount()

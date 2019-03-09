@@ -3,15 +3,15 @@ using System.Drawing;
 
 namespace GraphicsEditor.Shapes
 {
-    class Triangle : FilledShape
+    class Triangle : Shape
     {        
         public Triangle()
         {
 
         }
 
-        public Triangle(Point point1, Point point2, Point point3, Color penColor, Color brushColor)
-            : base(new List<Point>() { point1, point2, point3 }, penColor, brushColor)
+        public Triangle(List<Point> points, Color penColor, Color brushColor)
+            : base(points, penColor, brushColor)
         {
 
         }
