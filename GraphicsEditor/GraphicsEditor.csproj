@@ -46,15 +46,33 @@
   <ItemGroup>
     <Compile Include="Engine\Editor.cs" />
     <Compile Include="Engine\Settings.cs" />
+    <Compile Include="Windows\FormAddShape.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\FormAddShape.Designer.cs">
+      <DependentUpon>FormAddShape.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\FormSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\FormSettings.Designer.cs">
+      <DependentUpon>FormSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\FormShape.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\FormShape.Designer.cs">
+      <DependentUpon>FormShape.cs</DependentUpon>
+    </Compile>
     <Compile Include="ShapeRenderers\StandardEllipseRenderer.cs" />
     <Compile Include="ShapeRenderers\StandardLineRenderer.cs" />
     <Compile Include="ShapeRenderers\StandardRectangleRenderer.cs" />
     <Compile Include="ShapeRenderers\StandardTriangleRenderer.cs" />
     <Compile Include="ShapeRenderers\IShapeRenderer.cs" />
-    <Compile Include="FormGraphicsEditor.cs">
+    <Compile Include="Windows\FormGraphicsEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormGraphicsEditor.Designer.cs">
+    <Compile Include="Windows\FormGraphicsEditor.Designer.cs">
       <DependentUpon>FormGraphicsEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Engine\ListOfShapes.cs" />
@@ -68,7 +86,7 @@
     <Compile Include="Shapes\Shape.cs" />
     <Compile Include="Shapes\Square.cs" />
     <Compile Include="Shapes\Triangle.cs" />
-    <EmbeddedResource Include="FormGraphicsEditor.resx">
+    <EmbeddedResource Include="Windows\FormGraphicsEditor.resx">
       <DependentUpon>FormGraphicsEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
