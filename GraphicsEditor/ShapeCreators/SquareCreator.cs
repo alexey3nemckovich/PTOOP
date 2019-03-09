@@ -5,11 +5,35 @@ using GraphicsEditor.Shapes;
 
 namespace GraphicsEditor.ShapeCreators
 {
-    class SquareCreator
+    class SquareCreator : IShapeCreator
     {
+        private static SquareCreator instance;
+
+        private SquareCreator()
+        {
+
+        }
+
+        public static SquareCreator getInstance()
+        {
+            if (instance == null)
+                instance = new SquareCreator();
+            return instance;
+        }
+
         public Shape Create(List<Point> points, Color penColor, Color brushColor)
         {
             return new Square(points, penColor, brushColor);
+        }
+
+        public int CountDefiningShapePoints()
+        {
+            return 2;
+        }
+
+        public string ShapeTypeName()
+        {
+            return "Square";
         }
     }
 }

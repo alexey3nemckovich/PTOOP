@@ -4,11 +4,35 @@ using GraphicsEditor.Shapes;
 
 namespace GraphicsEditor.ShapeCreators
 {
-    class TriangleCreator
+    class TriangleCreator : IShapeCreator
     {
+        private static TriangleCreator instance;
+
+        private TriangleCreator()
+        {
+
+        }
+
+        public static TriangleCreator getInstance()
+        {
+            if (instance == null)
+                instance = new TriangleCreator();
+            return instance;
+        }
+
         public Shape Create(List<Point> points, Color penColor, Color brushColor)
         {
             return new Triangle(points, penColor, brushColor);
+        }
+
+        public int CountDefiningShapePoints()
+        {
+            return 2;
+        }
+
+        public string ShapeTypeName()
+        {
+            return "Triangle";
         }
     }
 }

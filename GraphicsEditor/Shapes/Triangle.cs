@@ -15,10 +15,5 @@ namespace GraphicsEditor.Shapes
         {
 
         }
-
-        public override int DefiningPointsCount()
-        {
-            return 3;
-        }
     }
 }

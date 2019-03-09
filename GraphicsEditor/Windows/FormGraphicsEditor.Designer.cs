@@ -32,8 +32,8 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonAddShape = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonShapes = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonSettings = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonSettings = new System.Windows.Forms.ToolStripButton();
             this.panelDraw = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -58,6 +58,7 @@
             this.toolStripButtonAddShape.Name = "toolStripButtonAddShape";
             this.toolStripButtonAddShape.Size = new System.Drawing.Size(83, 22);
             this.toolStripButtonAddShape.Text = "Add shape";
+            this.toolStripButtonAddShape.Click += new System.EventHandler(this.toolStripButtonAddShape_Click);
             // 
             // toolStripButtonShapes
             // 
@@ -66,6 +67,12 @@
             this.toolStripButtonShapes.Name = "toolStripButtonShapes";
             this.toolStripButtonShapes.Size = new System.Drawing.Size(64, 22);
             this.toolStripButtonShapes.Text = "Shapes";
+            this.toolStripButtonShapes.Click += new System.EventHandler(this.toolStripButtonShapes_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripButtonSettings
             // 
@@ -74,11 +81,7 @@
             this.toolStripButtonSettings.Name = "toolStripButtonSettings";
             this.toolStripButtonSettings.Size = new System.Drawing.Size(69, 22);
             this.toolStripButtonSettings.Text = "Settings";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.toolStripButtonSettings.Click += new System.EventHandler(this.toolStripButtonSettings_Click);
             // 
             // panelDraw
             // 

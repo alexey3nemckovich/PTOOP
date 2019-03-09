@@ -21,11 +21,6 @@ namespace GraphicsEditor.Shapes
             this.height = Math.Abs(Points[0].Y - Points[1].Y);
         }
 
-        public override int DefiningPointsCount()
-        {
-            return 2;
-        }
-
         public int Width
         {
             get { return width; }

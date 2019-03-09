@@ -12,10 +12,5 @@ namespace GraphicsEditor.Shapes
             this.Height = Math.Min(this.Height, this.Width);
             this.Width = this.Height;
         }
-
-        public override int DefiningPointsCount()
-        {
-            return 2;
-        }
     }
 }

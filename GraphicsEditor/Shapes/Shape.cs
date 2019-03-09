@@ -17,8 +17,6 @@ namespace GraphicsEditor.Shapes
             this.Brush = new SolidBrush(brushColor);
         }
 
-        public abstract int DefiningPointsCount();
-
         public List<Point> Points { get; set; }
 
         public Pen Pen { get; set; }
