@@ -10,8 +10,8 @@ namespace GraphicsEditor.Shapes
 
         }
 
-        public Line(List<Point> points, Color penColor):
-            base(points, penColor, penColor)
+        public Line(string typeName, List<Point> points, Color penColor):
+            base(typeName, points, penColor, penColor)
         {
 
         }

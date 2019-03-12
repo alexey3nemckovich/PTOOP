@@ -90,6 +90,7 @@
             this.panelDraw.Name = "panelDraw";
             this.panelDraw.Size = new System.Drawing.Size(708, 403);
             this.panelDraw.TabIndex = 1;
+            this.panelDraw.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelDraw_MouseDown);
             // 
             // FormGraphicsEditor
             // 

@@ -6,8 +6,8 @@ namespace GraphicsEditor.Shapes
 {
     class Circle : Ellipse
     {
-        public Circle(List<Point> points, Color penColor, Color brushColor)
-            : base(points, penColor, brushColor)
+        public Circle(string typeName, List<Point> points, Color penColor, Color brushColor)
+            : base(typeName, points, penColor, brushColor)
         {
             this.Width = Math.Min(this.Height, this.Width);
             this.Height = this.Width;

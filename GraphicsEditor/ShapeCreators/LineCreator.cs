@@ -23,7 +23,7 @@ namespace GraphicsEditor.ShapeCreators
 
         public Shape Create(List<Point> points, Color penColor, Color brushColor)
         {
-            return new Line(points, penColor);
+            return new Line(ShapeTypeName(), points, penColor);
         }
 
         public int CountDefiningShapePoints()

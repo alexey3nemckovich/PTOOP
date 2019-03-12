@@ -1,4 +1,4 @@
-﻿namespace GraphicsEditor
+﻿namespace GraphicsEditor.Windows
 {
     partial class FormAddShape
     {
@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxAvailableShapeTypes = new System.Windows.Forms.ComboBox();
             this.buttonAddShape = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // comboBoxAvailableShapeTypes
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 12);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(182, 21);
-            this.comboBox1.TabIndex = 0;
+            this.comboBoxAvailableShapeTypes.FormattingEnabled = true;
+            this.comboBoxAvailableShapeTypes.Location = new System.Drawing.Point(12, 12);
+            this.comboBoxAvailableShapeTypes.Name = "comboBoxAvailableShapeTypes";
+            this.comboBoxAvailableShapeTypes.Size = new System.Drawing.Size(182, 21);
+            this.comboBoxAvailableShapeTypes.TabIndex = 0;
             // 
             // buttonAddShape
             // 
@@ -48,6 +48,7 @@
             this.buttonAddShape.TabIndex = 1;
             this.buttonAddShape.Text = "Add";
             this.buttonAddShape.UseVisualStyleBackColor = true;
+            this.buttonAddShape.Click += new System.EventHandler(this.buttonAddShape_Click);
             // 
             // FormAddShape
             // 
@@ -55,7 +56,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(206, 75);
             this.Controls.Add(this.buttonAddShape);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxAvailableShapeTypes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -67,7 +68,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxAvailableShapeTypes;
         private System.Windows.Forms.Button buttonAddShape;
     }
 }

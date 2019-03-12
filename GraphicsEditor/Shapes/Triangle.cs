@@ -10,8 +10,8 @@ namespace GraphicsEditor.Shapes
 
         }
 
-        public Triangle(List<Point> points, Color penColor, Color brushColor)
-            : base(points, penColor, brushColor)
+        public Triangle(string typeName, List<Point> points, Color penColor, Color brushColor)
+            : base(typeName, points, penColor, brushColor)
         {
 
         }

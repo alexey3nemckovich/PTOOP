@@ -68,5 +68,22 @@ namespace GraphicsEditor.Engine
                 return null;
             }
         }
+
+        public IShapeCreator GetCreatorForShapeType(string shapeTypeName)
+        {
+            if (shapeTypesInfoMap.ContainsKey(shapeTypeName))
+            {
+                return shapeTypesInfoMap[shapeTypeName].Creator;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public List<string> GetRegisteredShapeTypesNames()
+        {
+            return new List<string>(shapeTypesInfoMap.Keys);
+        }
     }
 }
