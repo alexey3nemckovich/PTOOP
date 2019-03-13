@@ -21,9 +21,9 @@ namespace GraphicsEditor.ShapeCreators
             return instance;
         }
 
-        public Shape Create(List<Point> points, Color penColor, Color brushColor)
+        public Shape Create(List<Point> points, Color color)
         {
-            return new Square(ShapeTypeName(), points, penColor, brushColor);
+            return new Square(ShapeTypeName(), points, color);
         }
 
         public int CountDefiningShapePoints()

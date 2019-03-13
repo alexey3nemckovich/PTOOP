@@ -6,8 +6,8 @@ namespace GraphicsEditor.Shapes
 {
     class Square : Rectangle
     {
-        public Square(string typeName, List<Point> points, Color penColor, Color brushColor) 
-            : base(typeName, points, penColor, brushColor)
+        public Square(string typeName, List<Point> points, Color color) 
+            : base(typeName, points, color)
         {
             this.Height = Math.Min(this.Height, this.Width);
             this.Width = this.Height;

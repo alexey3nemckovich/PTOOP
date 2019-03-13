@@ -23,6 +23,11 @@ namespace GraphicsEditor.Windows
 
         private void toolStripButtonAddShape_Click(object sender, System.EventArgs e)
         {
+            onAddShape();
+        }
+
+        private void onAddShape()
+        {
             FormAddShape formAddShape = new FormAddShape();
             var result = formAddShape.ShowDialog();
 
@@ -37,7 +42,17 @@ namespace GraphicsEditor.Windows
         private void toolStripButtonShapes_Click(object sender, System.EventArgs e)
         {
             FormShapes formShapes = new FormShapes();
-            formShapes.ShowDialog();
+            var result = formShapes.ShowDialog();
+
+            RedrawPanel();
+
+            if (DialogResult.OK == result)
+            {
+                if(FormShapes.ResultType.AddShape == formShapes.Result)
+                {
+                    onAddShape();
+                }
+            }
         }
 
         private void toolStripButtonSettings_Click(object sender, System.EventArgs e)
@@ -64,6 +79,7 @@ namespace GraphicsEditor.Windows
         private void RedrawPanel()
         {
             g = panelDraw.CreateGraphics();
+            g.Clear(Color.White);
 
             List<Shapes.Shape> shapes = Editor.getInstance().ListOfShapes.Shapes;
             foreach (Shapes.Shape shape in shapes)

@@ -42,7 +42,7 @@ namespace GraphicsEditor.Engine
             if(null != shapeTypeCreator)
             {
                 ListOfShapes.AddShape(
-                    shapeTypeCreator.Create(definingPoints, Color.Black, Color.Black));
+                    shapeTypeCreator.Create(definingPoints, Color.Black));
 
                 return true;
             }

@@ -10,20 +10,19 @@ namespace GraphicsEditor.Shapes
 
         }
 
-        public Shape(string typeName, List<Point> points, Color penColor, Color brushColor)
+        public Shape(string typeName, List<Point> points, Color color)
         {
             this.TypeName = typeName;
             this.Points = points;
-            this.Pen = new Pen(penColor);
-            this.Brush = new SolidBrush(brushColor);
+            this.Color = color;
+            //this.Pen = new Pen(penColor);
+            //this.Brush = new SolidBrush(brushColor);
         }
 
         public string TypeName { get; }
 
         public List<Point> Points { get; set; }
 
-        public Pen Pen { get; set; }
-
-        public Brush Brush { get; set; }
+        public Color Color { get; set; }
     }
 }

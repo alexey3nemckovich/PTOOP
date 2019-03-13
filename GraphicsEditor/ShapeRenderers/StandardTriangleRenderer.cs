@@ -24,7 +24,7 @@ namespace GraphicsEditor.ShapeRenderers
             Triangle triangle = (Triangle)shape;
 
             g.FillPolygon(
-                triangle.Brush,
+                new SolidBrush(triangle.Color),
                 triangle.Points.ToArray());
         }
     }

@@ -24,7 +24,7 @@ namespace GraphicsEditor.ShapeRenderers
             Shapes.Rectangle rectangle = (Shapes.Rectangle)shape;
 
             g.FillRectangle(
-                rectangle.Brush,
+                new SolidBrush(rectangle.Color),
                 rectangle.Points[0].X,
                 rectangle.Points[0].Y,
                 rectangle.Width,

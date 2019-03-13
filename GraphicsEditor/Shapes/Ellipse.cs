@@ -14,8 +14,8 @@ namespace GraphicsEditor.Shapes
 
         }
 
-        public Ellipse(string typeName, List<Point> points, Color penColor, Color brushColor)
-            : base(typeName, points, penColor, brushColor)
+        public Ellipse(string typeName, List<Point> points, Color color)
+            : base(typeName, points, color)
         {
             this.width = Math.Abs(Points[0].X - Points[1].X);
             this.height = Math.Abs(Points[0].Y - Points[1].Y);

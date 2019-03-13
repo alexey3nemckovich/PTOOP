@@ -24,7 +24,7 @@ namespace GraphicsEditor.ShapeRenderers
             Line line = (Line)shape;
 
             g.DrawLine(
-                line.Pen, 
+                new Pen(line.Color), 
                 line.Points[0], 
                 line.Points[1]);
         }

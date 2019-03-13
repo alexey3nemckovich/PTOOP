@@ -1,4 +1,5 @@
 ﻿using GraphicsEditor.Shapes;
+using System.Drawing;
 
 namespace GraphicsEditor.ShapeRenderers
 {
@@ -23,7 +24,7 @@ namespace GraphicsEditor.ShapeRenderers
             Ellipse ellipse = (Ellipse)shape;
 
             g.FillEllipse(
-                ellipse.Brush,
+                new SolidBrush(ellipse.Color),
                 ellipse.Points[0].X,
                 ellipse.Points[0].Y,
                 ellipse.Width,
