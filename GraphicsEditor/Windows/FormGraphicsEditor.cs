@@ -77,7 +77,7 @@ namespace GraphicsEditor.Windows
                 }
             }
 
-            points.Clear();
+            points = new List<Point>();
             isDrawing = false;
         }
     }

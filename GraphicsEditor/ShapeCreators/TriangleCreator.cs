@@ -27,7 +27,7 @@ namespace GraphicsEditor.ShapeCreators
 
         public int CountDefiningShapePoints()
         {
-            return 2;
+            return 3;
         }
 
         public string ShapeTypeName()
