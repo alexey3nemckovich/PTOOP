@@ -19,6 +19,11 @@ namespace GraphicsEditor.ShapeRenderers
             return instance;
         }
 
+        public string Name()
+        {
+            return "Standard rectangle renderer";
+        }
+
         public void Render(Graphics g, Shape shape)
         {
             Shapes.Rectangle rectangle = (Shapes.Rectangle)shape;

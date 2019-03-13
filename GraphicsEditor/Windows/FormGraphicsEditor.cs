@@ -85,7 +85,7 @@ namespace GraphicsEditor.Windows
             foreach (Shapes.Shape shape in shapes)
             {
                 ShapeRenderers.IShapeRenderer shapeRenderer =
-                    Editor.getInstance().Settings.GetRendererForShapeType(shape.TypeName);
+                    Editor.getInstance().Settings.GetCurrentRendererForShapeType(shape.TypeName);
 
                 if (null != shapeRenderer)
                 {

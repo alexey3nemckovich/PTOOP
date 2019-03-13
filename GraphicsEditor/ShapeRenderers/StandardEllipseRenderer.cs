@@ -19,6 +19,11 @@ namespace GraphicsEditor.ShapeRenderers
             return instance;
         }
 
+        public string Name()
+        {
+            return "Standard ellipse renderer";
+        }
+
         public void Render(System.Drawing.Graphics g, Shape shape)
         {
             Ellipse ellipse = (Ellipse)shape;

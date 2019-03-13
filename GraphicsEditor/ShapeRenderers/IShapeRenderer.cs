@@ -5,6 +5,8 @@ namespace GraphicsEditor.ShapeRenderers
 {
     interface IShapeRenderer
     {
+        string Name();
+
         void Render(Graphics g, Shape shape);
     }
 }

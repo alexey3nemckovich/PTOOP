@@ -19,6 +19,11 @@ namespace GraphicsEditor.ShapeRenderers
             return instance;
         }
 
+        public string Name()
+        {
+            return "Standard line renderer";
+        }
+
         public void Render(Graphics g, Shape shape)
         {
             Line line = (Line)shape;

@@ -19,6 +19,11 @@ namespace GraphicsEditor.ShapeRenderers
             return instance;
         }
 
+        public string Name()
+        {
+            return "Standard triangle renderer";
+        }
+
         public void Render(Graphics g, Shape shape)
         {
             Triangle triangle = (Triangle)shape;

@@ -6,33 +6,38 @@ namespace GraphicsEditor.Engine
 {
     class Settings
     {
-        class ShapeTypeInfo
+        public class ShapeTypeInfo
         {
             public ShapeTypeInfo(IShapeCreator creator, IShapeRenderer renderer)
             {
                 this.Creator = creator;
                 this.Renderer = renderer;
+
+                this.Renderers = new Dictionary<string, IShapeRenderer>();
+                this.Renderers.Add(renderer.Name(), renderer);
             }
 
             public IShapeCreator Creator { get; set; }
 
             public IShapeRenderer Renderer { get; set; }
+
+            public Dictionary<string, IShapeRenderer> Renderers { get; private set; }
         }
 
         public List<IShapeRenderer> ShapeRenderers { get; set; }
 
-        private Dictionary<string, ShapeTypeInfo> shapeTypesInfoMap;
+        public Dictionary<string, ShapeTypeInfo> ShapeTypesInfoMap { get; private set; }
 
         public Settings()
         {
-            shapeTypesInfoMap = new Dictionary<string, ShapeTypeInfo>();
+            ShapeTypesInfoMap = new Dictionary<string, ShapeTypeInfo>();
 
             Reset();
         }
 
         public void Reset()
         {
-            shapeTypesInfoMap.Clear();
+            ShapeTypesInfoMap.Clear();
 
             RegisterShapeType(LineCreator.getInstance(), StandardLineRenderer.getInstance());
             RegisterShapeType(RectangleCreator.getInstance(), StandardRectangleRenderer.getInstance());
@@ -42,26 +47,50 @@ namespace GraphicsEditor.Engine
             RegisterShapeType(TriangleCreator.getInstance(), StandardTriangleRenderer.getInstance());
         }
 
-        public void SetRendererForShapeType(string shapeTypeName, IShapeRenderer shapeRenderer)
-        {
-            shapeTypesInfoMap[shapeTypeName].Renderer = shapeRenderer;
-        }
-
         public void RegisterShapeType(IShapeCreator creator)
         {
-            shapeTypesInfoMap[creator.ShapeTypeName()] = new ShapeTypeInfo(creator, null);
+            ShapeTypesInfoMap[creator.ShapeTypeName()] = new ShapeTypeInfo(creator, null);
         }
 
         public void RegisterShapeType(IShapeCreator creator, IShapeRenderer renderer)
         {
-            shapeTypesInfoMap[creator.ShapeTypeName()] = new ShapeTypeInfo(creator, renderer);
+            ShapeTypesInfoMap[creator.ShapeTypeName()] = new ShapeTypeInfo(creator, renderer);
+
+            //if(!ShapeTypesInfoMap[creator.ShapeTypeName()].Renderers.ContainsKey(StandardLineRenderer.getInstance().Name()))
+            //{
+            //    ShapeTypesInfoMap[creator.ShapeTypeName()].Renderers.Add(StandardLineRenderer.getInstance().Name(), StandardLineRenderer.getInstance());
+            //}
         }
 
-        public IShapeRenderer GetRendererForShapeType(string shapeTypeName)
+        public void SetRendererForShapeType(string shapeTypeName, IShapeRenderer shapeRenderer)
         {
-            if(shapeTypesInfoMap.ContainsKey(shapeTypeName))
+            ShapeTypesInfoMap[shapeTypeName].Renderer = shapeRenderer;
+        }
+
+        public IShapeRenderer GetCurrentRendererForShapeType(string shapeTypeName)
+        {
+            if(ShapeTypesInfoMap.ContainsKey(shapeTypeName))
             {
-                return shapeTypesInfoMap[shapeTypeName].Renderer;
+                return ShapeTypesInfoMap[shapeTypeName].Renderer;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public IShapeRenderer GetRendererForShapeType(string shapeTypeName, string rendererName)
+        {
+            if (ShapeTypesInfoMap.ContainsKey(shapeTypeName))
+            {
+                if(ShapeTypesInfoMap[shapeTypeName].Renderers.ContainsKey(rendererName))
+                {
+                    return ShapeTypesInfoMap[shapeTypeName].Renderers[rendererName];
+                }
+                else
+                {
+                    return null;
+                }
             }
             else
             {
@@ -71,9 +100,9 @@ namespace GraphicsEditor.Engine
 
         public IShapeCreator GetCreatorForShapeType(string shapeTypeName)
         {
-            if (shapeTypesInfoMap.ContainsKey(shapeTypeName))
+            if (ShapeTypesInfoMap.ContainsKey(shapeTypeName))
             {
-                return shapeTypesInfoMap[shapeTypeName].Creator;
+                return ShapeTypesInfoMap[shapeTypeName].Creator;
             }
             else
             {
@@ -83,7 +112,7 @@ namespace GraphicsEditor.Engine
 
         public List<string> GetRegisteredShapeTypesNames()
         {
-            return new List<string>(shapeTypesInfoMap.Keys);
+            return new List<string>(ShapeTypesInfoMap.Keys);
         }
     }
 }
