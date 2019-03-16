@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using GraphicsEditor.Shapes;
+using GraphicsEditor.ShapeCreators;
 
 namespace GraphicsEditor.ShapeRenderers
 {
@@ -22,6 +23,11 @@ namespace GraphicsEditor.ShapeRenderers
         public string Name()
         {
             return "Standard rectangle renderer";
+        }
+
+        public string RenderingShapeTypeName()
+        {
+            return RectangleCreator.getInstance().ShapeTypeName();
         }
 
         public void Render(Graphics g, Shape shape)

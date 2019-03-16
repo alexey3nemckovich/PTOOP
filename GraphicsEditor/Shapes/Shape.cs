@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace GraphicsEditor.Shapes
 {
-    abstract class Shape
+    public abstract class Shape
     {
         public Shape()
         {

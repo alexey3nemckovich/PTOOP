@@ -11,10 +11,13 @@ namespace GraphicsEditor.Engine
             public ShapeTypeInfo(IShapeCreator creator, IShapeRenderer renderer)
             {
                 this.Creator = creator;
-                this.Renderer = renderer;
-
                 this.Renderers = new Dictionary<string, IShapeRenderer>();
-                this.Renderers.Add(renderer.Name(), renderer);
+
+                if(null != renderer)
+                {
+                    this.Renderers.Add(renderer.Name(), renderer);
+                    this.Renderer = renderer;
+                }
             }
 
             public IShapeCreator Creator { get; set; }
@@ -60,6 +63,16 @@ namespace GraphicsEditor.Engine
             //{
             //    ShapeTypesInfoMap[creator.ShapeTypeName()].Renderers.Add(StandardLineRenderer.getInstance().Name(), StandardLineRenderer.getInstance());
             //}
+        }
+
+        public void RegisterShapeTypeRenderer(IShapeRenderer renderer)
+        {
+            ShapeTypesInfoMap[renderer.RenderingShapeTypeName()].Renderers.Add(renderer.Name(), renderer);
+
+            if(null == ShapeTypesInfoMap[renderer.RenderingShapeTypeName()].Renderer)
+            {
+                ShapeTypesInfoMap[renderer.RenderingShapeTypeName()].Renderer = renderer;
+            }
         }
 
         public void SetRendererForShapeType(string shapeTypeName, IShapeRenderer shapeRenderer)

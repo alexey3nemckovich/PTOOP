@@ -1,4 +1,5 @@
 ﻿using GraphicsEditor.Shapes;
+using GraphicsEditor.ShapeCreators;
 using System.Drawing;
 
 namespace GraphicsEditor.ShapeRenderers
@@ -22,6 +23,11 @@ namespace GraphicsEditor.ShapeRenderers
         public string Name()
         {
             return "Standard ellipse renderer";
+        }
+
+        public string RenderingShapeTypeName()
+        {
+            return EllipseCreator.getInstance().ShapeTypeName();
         }
 
         public void Render(System.Drawing.Graphics g, Shape shape)

@@ -30,8 +30,11 @@ namespace GraphicsEditor.Windows
                 DataGridViewComboBoxCell typeRenderesCombobox =
                     dataGridViewShapeTypesRenderers.Rows[i].Cells[1] as DataGridViewComboBoxCell;
 
-                typeRenderesCombobox.DataSource = shapeTypeInfo.Value.Renderers.Keys.ToList();
-                typeRenderesCombobox.Value = shapeTypeInfo.Value.Renderer.Name();
+                if (shapeTypeInfo.Value.Renderers.Count > 0)
+                {
+                    typeRenderesCombobox.DataSource = shapeTypeInfo.Value.Renderers.Keys.ToList();
+                    typeRenderesCombobox.Value = shapeTypeInfo.Value.Renderer.Name();
+                }
 
                 i++;
             }

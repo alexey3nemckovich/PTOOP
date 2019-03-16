@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.dataGridViewShapes = new System.Windows.Forms.DataGridView();
+            this.ShapeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ShapePoints = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ShapeColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonAddShape = new System.Windows.Forms.Button();
             this.buttonDeleteShape = new System.Windows.Forms.Button();
             this.buttonSaveShape = new System.Windows.Forms.Button();
             this.buttonLoadShape = new System.Windows.Forms.Button();
-            this.ShapeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ShapePoints = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ShapeColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShapes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,6 +58,24 @@
             this.dataGridViewShapes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewShapes.Size = new System.Drawing.Size(500, 219);
             this.dataGridViewShapes.TabIndex = 0;
+            // 
+            // ShapeType
+            // 
+            this.ShapeType.HeaderText = "Type";
+            this.ShapeType.Name = "ShapeType";
+            this.ShapeType.ReadOnly = true;
+            // 
+            // ShapePoints
+            // 
+            this.ShapePoints.HeaderText = "Defining points";
+            this.ShapePoints.Name = "ShapePoints";
+            this.ShapePoints.ReadOnly = true;
+            // 
+            // ShapeColor
+            // 
+            this.ShapeColor.HeaderText = "Color";
+            this.ShapeColor.Name = "ShapeColor";
+            this.ShapeColor.ReadOnly = true;
             // 
             // buttonAddShape
             // 
@@ -99,24 +117,6 @@
             this.buttonLoadShape.UseVisualStyleBackColor = true;
             this.buttonLoadShape.Click += new System.EventHandler(this.buttonLoadShape_Click);
             // 
-            // ShapeType
-            // 
-            this.ShapeType.HeaderText = "Type";
-            this.ShapeType.Name = "ShapeType";
-            this.ShapeType.ReadOnly = true;
-            // 
-            // ShapePoints
-            // 
-            this.ShapePoints.HeaderText = "Defining points";
-            this.ShapePoints.Name = "ShapePoints";
-            this.ShapePoints.ReadOnly = true;
-            // 
-            // ShapeColor
-            // 
-            this.ShapeColor.HeaderText = "Color";
-            this.ShapeColor.Name = "ShapeColor";
-            this.ShapeColor.ReadOnly = true;
-            // 
             // FormShapes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -127,6 +127,7 @@
             this.Controls.Add(this.buttonDeleteShape);
             this.Controls.Add(this.buttonAddShape);
             this.Controls.Add(this.dataGridViewShapes);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FormShapes";
             this.Text = "Shapes";

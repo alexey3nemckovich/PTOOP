@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using GraphicsEditor.Shapes;
+using GraphicsEditor.ShapeCreators;
 
 namespace GraphicsEditor.ShapeRenderers
 {
@@ -17,6 +18,11 @@ namespace GraphicsEditor.ShapeRenderers
             if (instance == null)
                 instance = new StandardLineRenderer();
             return instance;
+        }
+
+        public string RenderingShapeTypeName()
+        {
+            return LineCreator.getInstance().ShapeTypeName();
         }
 
         public string Name()

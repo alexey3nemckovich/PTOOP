@@ -4,7 +4,7 @@ using GraphicsEditor.Shapes;
 
 namespace GraphicsEditor.ShapeCreators
 {
-    interface IShapeCreator
+    public interface IShapeCreator
     {
         Shape Create(List<Point> points, Color color);
 

@@ -1,5 +1,8 @@
 ﻿using System.Drawing;
 using System.Collections.Generic;
+using System.Reflection;
+using GraphicsEditor.ShapeCreators;
+using GraphicsEditor.ShapeRenderers;
 
 namespace GraphicsEditor.Engine
 {
@@ -50,6 +53,60 @@ namespace GraphicsEditor.Engine
             {
                 return false;
             }
+        }
+
+        public void LoadShape(string filePath)
+        {
+
+        }
+
+        public bool LoadShapeType(string filePath, ref string shapeTypeLoaded)
+        {
+            IShapeCreator newShapeTypeCreator = GetInstanceOfTypeFromAssembly<IShapeCreator>(filePath);
+
+            if(null != newShapeTypeCreator)
+            {
+                Settings.RegisterShapeType(newShapeTypeCreator);
+
+                shapeTypeLoaded = newShapeTypeCreator.ShapeTypeName();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool LoadShapeTypeRenderer(string filePath, ref string rendererLoaded)
+        {
+            IShapeRenderer newShapeRenderer = GetInstanceOfTypeFromAssembly<IShapeRenderer>(filePath);
+
+            if (null != newShapeRenderer)
+            {
+                Settings.RegisterShapeTypeRenderer(newShapeRenderer);
+
+                rendererLoaded = newShapeRenderer.Name();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private T GetInstanceOfTypeFromAssembly<T>(string filePath)
+        {
+            Assembly asm = Assembly.LoadFrom(filePath);
+
+            foreach (var type in asm.GetTypes())
+            {
+                if (null != type.GetInterface(typeof(T).FullName))
+                {
+                    return (T)asm.CreateInstance(type.FullName);
+                }
+            }
+
+            return default(T);
         }
     }
 }

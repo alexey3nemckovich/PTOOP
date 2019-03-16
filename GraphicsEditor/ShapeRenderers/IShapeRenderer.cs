@@ -3,9 +3,11 @@ using GraphicsEditor.Shapes;
 
 namespace GraphicsEditor.ShapeRenderers
 {
-    interface IShapeRenderer
+    public interface IShapeRenderer
     {
         string Name();
+
+        string RenderingShapeTypeName();
 
         void Render(Graphics g, Shape shape);
     }
