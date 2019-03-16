@@ -54,6 +54,12 @@
     <Compile Include="ShapeCreators\SquareCreator.cs" />
     <Compile Include="ShapeCreators\TriangleCreator.cs" />
     <Compile Include="Windows\Common.cs" />
+    <Compile Include="Windows\FormEditShapeCoordinates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\FormEditShapeCoordinates.Designer.cs">
+      <DependentUpon>FormEditShapeCoordinates.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Utils.cs" />
     <Compile Include="Windows\FormAddShape.cs">
       <SubType>Form</SubType>
@@ -96,6 +102,9 @@
     <Compile Include="Shapes\Triangle.cs" />
     <EmbeddedResource Include="Windows\FormAddShape.resx">
       <DependentUpon>FormAddShape.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\FormEditShapeCoordinates.resx">
+      <DependentUpon>FormEditShapeCoordinates.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\FormGraphicsEditor.resx">
       <DependentUpon>FormGraphicsEditor.cs</DependentUpon>

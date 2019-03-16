@@ -11,6 +11,7 @@ namespace GraphicsEditor.Windows
 
         private Graphics g;
         private string shapeType;
+        private Color shapeColor;
         private List<Point> points;
 
         public FormGraphicsEditor()
@@ -34,6 +35,7 @@ namespace GraphicsEditor.Windows
             if (DialogResult.OK == result)
             {
                 shapeType = formAddShape.SelectedShapeType;
+                shapeColor = formAddShape.SelectedColor;
 
                 isDrawing = true;
             }
@@ -76,7 +78,7 @@ namespace GraphicsEditor.Windows
                 if ((countDefiningPoints == points.Count) ||
                     (MouseButtons.Right == e.Button && -1 == countDefiningPoints && points.Count > 2))
                 {
-                    Editor.getInstance().CreateShape(shapeType, points);
+                    Editor.getInstance().CreateShape(shapeType, points, shapeColor);
 
                     RedrawPanel();
                 }

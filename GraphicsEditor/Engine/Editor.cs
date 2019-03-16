@@ -42,13 +42,13 @@ namespace GraphicsEditor.Engine
             ListOfShapes.Clear();
         }
 
-        public bool CreateShape(string shapeType, List<Point> definingPoints)
+        public bool CreateShape(string shapeType, List<Point> definingPoints, Color color)
         {
             ShapeCreators.IShapeCreator shapeTypeCreator = Settings.GetCreatorForShapeType(shapeType);
             if(null != shapeTypeCreator)
             {
                 ListOfShapes.AddShape(
-                    shapeTypeCreator.Create(definingPoints, Color.Black));
+                    shapeTypeCreator.Create(definingPoints, color));
 
                 return true;
             }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Drawing;
 using GraphicsEditor.Engine;
 
 namespace GraphicsEditor.Windows
@@ -8,11 +9,14 @@ namespace GraphicsEditor.Windows
     {
         public string SelectedShapeType { get; private set; }
 
+        public Color SelectedColor;
+
         public FormAddShape()
         {
             InitializeComponent();
 
             LoadAvailableShapeTypes();
+            setColor(new Color());
         }
 
         private void LoadAvailableShapeTypes()
@@ -29,5 +33,23 @@ namespace GraphicsEditor.Windows
             DialogResult = DialogResult.OK;
             Close();
         }
+
+        private void buttonChangeColor_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.OK == colorDialog.ShowDialog())
+            {
+                setColor(colorDialog.Color);
+            }
+        }
+
+        private void setColor(Color color)
+        {
+            SelectedColor = colorDialog.Color;
+            labelColor.BackColor = color;
+
+            labelColor.Invalidate();
+        }
+
+        
     }
 }

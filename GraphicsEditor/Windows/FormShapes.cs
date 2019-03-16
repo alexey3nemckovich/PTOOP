@@ -24,6 +24,9 @@ namespace GraphicsEditor
             InitializeComponent();
 
             LoadShapes();
+
+            dataGridViewShapes.CellContentClick +=
+                new DataGridViewCellEventHandler(dataGridView_CellContentClick);
         }
 
         private string ColorName(Color color)
@@ -69,7 +72,12 @@ namespace GraphicsEditor
             for(int i = 0; i < shapes.Count; i++)
             {
                 dataGridViewShapes.Rows.Add(
-                    shapes[i].TypeName, ListOfPoints(shapes[i].Points), ColorName(shapes[i].Color));
+                    shapes[i].TypeName, ListOfPoints(shapes[i].Points));
+
+                DataGridViewButtonCell bc = dataGridViewShapes.Rows[i].Cells[2] as DataGridViewButtonCell;
+                bc.FlatStyle = FlatStyle.Flat;
+                bc.Style.BackColor = shapes[i].Color;
+                //(dataGridViewShapes.Rows[i].Cells[2] as DataGridViewButtonCell).Style.CBackColor = shapes[i].Color;
 
                 dataGridViewShapes.Rows[i].Tag = shapes[i];
             }
@@ -141,6 +149,31 @@ namespace GraphicsEditor
                 else
                 {
                     return false;
+                }
+            }
+        }
+
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridViewShapes.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                Shape shape = (Shape)dataGridViewShapes.Rows[e.RowIndex].Tag;
+
+                if (1 == e.ColumnIndex)
+                {
+                    FormEditShapeCoordinates form = new FormEditShapeCoordinates(shape);
+                    form.ShowDialog();
+
+                    dataGridViewShapes.Rows[e.RowIndex].Cells[1].Value = ListOfPoints(shape.Points);
+                }
+                else
+                {
+                    if (DialogResult.OK == colorDialog.ShowDialog())
+                    {
+                        shape.Color = colorDialog.Color;
+                        (dataGridViewShapes.Rows[e.RowIndex].Cells[2] as DataGridViewButtonCell).Style.BackColor = colorDialog.Color;
+                    }
                 }
             }
         }
