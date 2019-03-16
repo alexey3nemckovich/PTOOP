@@ -33,11 +33,13 @@
             this.toolStripButtonAddShape = new System.Windows.Forms.ToolStripButton();
             this.toolStripLoadShape = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonLoadShapeType = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonLoadShapeTypeRenderer = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonShapes = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSettings = new System.Windows.Forms.ToolStripButton();
             this.panelDraw = new System.Windows.Forms.Panel();
-            this.toolStripButtonLoadShapeTypeRenderer = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonPlugins = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +52,9 @@
             this.toolStripButtonLoadShapeTypeRenderer,
             this.toolStripSeparator2,
             this.toolStripButtonShapes,
-            this.toolStripButtonSettings});
+            this.toolStripButtonSettings,
+            this.toolStripSeparator1,
+            this.toolStripButtonPlugins});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(708, 25);
@@ -85,6 +89,16 @@
             this.toolStripButtonLoadShapeType.ToolTipText = "Load shape type";
             this.toolStripButtonLoadShapeType.Click += new System.EventHandler(this.toolStripButtonLoadShapeType_Click);
             // 
+            // toolStripButtonLoadShapeTypeRenderer
+            // 
+            this.toolStripButtonLoadShapeTypeRenderer.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonLoadShapeTypeRenderer.Image")));
+            this.toolStripButtonLoadShapeTypeRenderer.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonLoadShapeTypeRenderer.Name = "toolStripButtonLoadShapeTypeRenderer";
+            this.toolStripButtonLoadShapeTypeRenderer.Size = new System.Drawing.Size(100, 22);
+            this.toolStripButtonLoadShapeTypeRenderer.Text = "Load renderer";
+            this.toolStripButtonLoadShapeTypeRenderer.ToolTipText = "Load shape type renderer";
+            this.toolStripButtonLoadShapeTypeRenderer.Click += new System.EventHandler(this.toolStripButtonLoadShapeTypeRenderer_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
@@ -117,15 +131,19 @@
             this.panelDraw.TabIndex = 1;
             this.panelDraw.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelDraw_MouseDown);
             // 
-            // toolStripButtonLoadShapeTypeRenderer
+            // toolStripSeparator1
             // 
-            this.toolStripButtonLoadShapeTypeRenderer.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonLoadShapeTypeRenderer.Image")));
-            this.toolStripButtonLoadShapeTypeRenderer.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonLoadShapeTypeRenderer.Name = "toolStripButtonLoadShapeTypeRenderer";
-            this.toolStripButtonLoadShapeTypeRenderer.Size = new System.Drawing.Size(100, 22);
-            this.toolStripButtonLoadShapeTypeRenderer.Text = "Load renderer";
-            this.toolStripButtonLoadShapeTypeRenderer.ToolTipText = "Load shape type renderer";
-            this.toolStripButtonLoadShapeTypeRenderer.Click += new System.EventHandler(this.toolStripButtonLoadShapeTypeRenderer_Click);
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButtonPlugins
+            // 
+            this.toolStripButtonPlugins.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonPlugins.Image")));
+            this.toolStripButtonPlugins.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonPlugins.Name = "toolStripButtonPlugins";
+            this.toolStripButtonPlugins.Size = new System.Drawing.Size(66, 22);
+            this.toolStripButtonPlugins.Text = "Plugins";
+            this.toolStripButtonPlugins.Click += new System.EventHandler(this.toolStripButtonPlugins_Click);
             // 
             // FormGraphicsEditor
             // 
@@ -134,6 +152,7 @@
             this.ClientSize = new System.Drawing.Size(708, 432);
             this.Controls.Add(this.panelDraw);
             this.Controls.Add(this.toolStrip1);
+            this.MaximizeBox = false;
             this.Name = "FormGraphicsEditor";
             this.Text = "Graphics Editor";
             this.toolStrip1.ResumeLayout(false);
@@ -154,6 +173,8 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonLoadShapeType;
         private System.Windows.Forms.ToolStripButton toolStripLoadShape;
         private System.Windows.Forms.ToolStripButton toolStripButtonLoadShapeTypeRenderer;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonPlugins;
     }
 }
 

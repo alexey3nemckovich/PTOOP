@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Engine\Editor.cs" />
     <Compile Include="Engine\Settings.cs" />
+    <Compile Include="Engine\Plugin.cs" />
     <Compile Include="ShapeCreators\CircleCreator.cs" />
     <Compile Include="ShapeCreators\EllipseCreator.cs" />
     <Compile Include="ShapeCreators\IShapeCreator.cs" />
@@ -59,6 +60,18 @@
     </Compile>
     <Compile Include="Windows\FormEditShapeCoordinates.Designer.cs">
       <DependentUpon>FormEditShapeCoordinates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\FormPluginsSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\FormPluginsSettings.Designer.cs">
+      <DependentUpon>FormPluginsSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\FormTunePlugin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\FormTunePlugin.Designer.cs">
+      <DependentUpon>FormTunePlugin.cs</DependentUpon>
     </Compile>
     <Compile Include="Windows\Utils.cs" />
     <Compile Include="Windows\FormAddShape.cs">
@@ -118,11 +131,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Windows\FormPluginsSettings.resx">
+      <DependentUpon>FormPluginsSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\FormSettings.resx">
       <DependentUpon>FormSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\FormShapes.resx">
       <DependentUpon>FormShapes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\FormTunePlugin.resx">
+      <DependentUpon>FormTunePlugin.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

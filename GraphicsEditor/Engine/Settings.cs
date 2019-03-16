@@ -27,13 +27,17 @@ namespace GraphicsEditor.Engine
             public Dictionary<string, IShapeRenderer> Renderers { get; private set; }
         }
 
-        public List<IShapeRenderer> ShapeRenderers { get; set; }
-
         public Dictionary<string, ShapeTypeInfo> ShapeTypesInfoMap { get; private set; }
+
+        public Dictionary<string, IPlugin> LoadedPlugins { get; private set; }
+
+        public List<IPlugin> OrderedAppliedPluginsList { get; private set; }
 
         public Settings()
         {
             ShapeTypesInfoMap = new Dictionary<string, ShapeTypeInfo>();
+            LoadedPlugins = new Dictionary<string, IPlugin>();
+            OrderedAppliedPluginsList = new List<IPlugin>();
 
             Reset();
         }
@@ -58,11 +62,6 @@ namespace GraphicsEditor.Engine
         public void RegisterShapeType(IShapeCreator creator, IShapeRenderer renderer)
         {
             ShapeTypesInfoMap[creator.ShapeTypeName()] = new ShapeTypeInfo(creator, renderer);
-
-            //if(!ShapeTypesInfoMap[creator.ShapeTypeName()].Renderers.ContainsKey(StandardLineRenderer.getInstance().Name()))
-            //{
-            //    ShapeTypesInfoMap[creator.ShapeTypeName()].Renderers.Add(StandardLineRenderer.getInstance().Name(), StandardLineRenderer.getInstance());
-            //}
         }
 
         public void RegisterShapeTypeRenderer(IShapeRenderer renderer)
@@ -73,6 +72,16 @@ namespace GraphicsEditor.Engine
             {
                 ShapeTypesInfoMap[renderer.RenderingShapeTypeName()].Renderer = renderer;
             }
+        }
+
+        public void RegisterPlugin(IPlugin plugin)
+        {
+            LoadedPlugins.Add(plugin.Name(), plugin);
+        }
+
+        public void SetApplyingPlugins(List<IPlugin> plugins)
+        {
+            OrderedAppliedPluginsList = plugins;
         }
 
         public void SetRendererForShapeType(string shapeTypeName, IShapeRenderer shapeRenderer)

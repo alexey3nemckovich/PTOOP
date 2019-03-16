@@ -122,5 +122,11 @@ namespace GraphicsEditor.Windows
         {
             Common.LoadShapeTypeRenderer();
         }
+
+        private void toolStripButtonPlugins_Click(object sender, System.EventArgs e)
+        {
+            FormPluginsSettings formPluginsSettings = new FormPluginsSettings();
+            formPluginsSettings.ShowDialog();
+        }
     }
 }
