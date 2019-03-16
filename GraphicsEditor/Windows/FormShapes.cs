@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using GraphicsEditor.Engine;
+using GraphicsEditor.Shapes;
+using GraphicsEditor.Windows;
 
 namespace GraphicsEditor
 {
@@ -89,19 +87,62 @@ namespace GraphicsEditor
         {
             foreach(DataGridViewRow row in dataGridViewShapes.SelectedRows)
             {
-                Editor.getInstance().ListOfShapes.RemoveShape((Shapes.Shape)row.Tag);
+                Editor.getInstance().ListOfShapes.RemoveShape((Shape)row.Tag);
                 dataGridViewShapes.Rows.RemoveAt(row.Index);
             }
         }
 
         private void buttonSaveShape_Click(object sender, EventArgs e)
         {
+            string dirPath = "";
+            if (Utils.selectFolder(ref dirPath))
+            {
+                foreach (DataGridViewRow row in dataGridViewShapes.SelectedRows)
+                {
+                    Shape shape = (Shape)row.Tag;
 
+                    string filePath = "";
+                    if(Editor.getInstance().SaveShape(shape, dirPath, ref filePath))
+                    {
+                        MessageBox.Show(
+                            "Shape successfully stored to '" + filePath + "'",
+                            "",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.None);
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            "Failed to load save shape",
+                            "",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
 
         private void buttonLoadShape_Click(object sender, EventArgs e)
         {
+            Common.LoadShape();
+        }
 
+        private bool selectFolder(string filter, ref string path)
+        {
+            using (var fbd = new FolderBrowserDialog())
+            {
+                DialogResult result = fbd.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    path = fbd.SelectedPath;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
     }
 }

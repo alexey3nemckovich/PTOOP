@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 namespace GraphicsEditor.Shapes
 {
+    [Serializable]
     class Square : Rectangle
     {
         public Square(string typeName, List<Point> points, Color color) 

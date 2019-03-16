@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 namespace GraphicsEditor.Shapes
 {
+    [Serializable]
     class Ellipse : Shape
     {
         private int width;

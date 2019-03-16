@@ -54,5 +54,15 @@ namespace GraphicsEditor.Windows
                 Editor.getInstance().Settings.SetRendererForShapeType(shapeTypeName, renderer);
             }
         }
+
+        private void buttonAddShapeType_Click(object sender, System.EventArgs e)
+        {
+            Common.LoadShapeType();
+        }
+
+        private void buttonAddShapeTypeRenderer_Click(object sender, System.EventArgs e)
+        {
+            Common.LoadShapeTypeRenderer();
+        }
     }
 }

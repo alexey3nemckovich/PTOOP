@@ -1,8 +1,10 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Collections.Generic;
 
 namespace GraphicsEditor.Shapes
 {
+    [Serializable]
     public abstract class Shape
     {
         public Shape()

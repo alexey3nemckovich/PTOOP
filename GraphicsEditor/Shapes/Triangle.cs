@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
+using System;
 
 namespace GraphicsEditor.Shapes
 {
+    [Serializable]
     class Triangle : Shape
     {        
         public Triangle()

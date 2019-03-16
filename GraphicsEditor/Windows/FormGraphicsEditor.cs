@@ -106,82 +106,19 @@ namespace GraphicsEditor.Windows
 
         private void toolStripButtonLoadShapeType_Click(object sender, System.EventArgs e)
         {
-            string dllPath = "";
-            if(selectFile("Dll files (*.dll)|*.dll", ref dllPath))
-            {
-                string newShapeTypeName = "";
-
-                if(Editor.getInstance().LoadShapeType(dllPath, ref newShapeTypeName))
-                {
-                    MessageBox.Show(
-                        "Successfully loaded new shape type '" + newShapeTypeName + "'",
-                        "",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.None);
-                }
-                else
-                {
-                    MessageBox.Show(
-                        "Failed to load shape type from file '" + dllPath + "'",
-                        "",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        private bool selectFile(string filter, ref string path)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-
-            openFileDialog.Filter = filter;
-            openFileDialog.FilterIndex = 0;
-            openFileDialog.RestoreDirectory = true;
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                path = openFileDialog.FileName;
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            Common.LoadShapeType();
         }
 
         private void toolStripLoadShape_Click(object sender, System.EventArgs e)
         {
-            string shapePath = "";
-            if (selectFile("Shape files (*.shape)|*.shape", ref shapePath))
-            {
-                Editor.getInstance().LoadShape(shapePath);
-            }
+            Common.LoadShape();
+
+            RedrawPanel();
         }
 
         private void toolStripButtonLoadShapeTypeRenderer_Click(object sender, System.EventArgs e)
         {
-            string dllPath = "";
-            if (selectFile("Dll files (*.dll)|*.dll", ref dllPath))
-            {
-                string newRendererName = "";
-
-                if(Editor.getInstance().LoadShapeTypeRenderer(dllPath, ref newRendererName))
-                {
-                    MessageBox.Show(
-                        "Successfully loaded new renderer '" + newRendererName + "'",
-                        "",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.None);
-                }
-                else
-                {
-                    MessageBox.Show(
-                        "Failed to load renderer  from file '" + dllPath + "'",
-                        "",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                }
-            }
+            Common.LoadShapeTypeRenderer();
         }
     }
 }

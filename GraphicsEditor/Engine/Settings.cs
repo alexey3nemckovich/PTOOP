@@ -123,6 +123,21 @@ namespace GraphicsEditor.Engine
             }
         }
 
+        public List<string> GetRenderableShapeTypesNames()
+        {
+            List<string> list = new List<string>();
+
+            foreach(var entry in ShapeTypesInfoMap)
+            {
+                if(null != entry.Value.Renderer)
+                {
+                    list.Add(entry.Key);
+                }
+            }
+
+            return list;
+        }
+
         public List<string> GetRegisteredShapeTypesNames()
         {
             return new List<string>(ShapeTypesInfoMap.Keys);

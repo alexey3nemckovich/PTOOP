@@ -4,6 +4,7 @@ using System;
 
 namespace GraphicsEditor.Shapes
 {
+    [Serializable]
     class Rectangle : Shape
     {
         private int width;

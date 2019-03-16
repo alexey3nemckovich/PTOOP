@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using GraphicsEditor.Engine; 
+using GraphicsEditor.Engine;
 
 namespace GraphicsEditor.Windows
 {
@@ -25,7 +18,7 @@ namespace GraphicsEditor.Windows
         private void LoadAvailableShapeTypes()
         {
             comboBoxAvailableShapeTypes.Items.AddRange(
-                Editor.getInstance().Settings.GetRegisteredShapeTypesNames().ToArray());
+                Editor.getInstance().Settings.GetRenderableShapeTypesNames().ToArray());
 
             comboBoxAvailableShapeTypes.SelectedIndex = 0;
         }

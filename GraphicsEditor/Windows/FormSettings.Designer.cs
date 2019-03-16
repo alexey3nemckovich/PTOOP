@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.dataGridViewShapeTypesRenderers = new System.Windows.Forms.DataGridView();
-            this.buttonAddShapeType = new System.Windows.Forms.Button();
-            this.buttonAddShapeTypeRenderer = new System.Windows.Forms.Button();
             this.ShapeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ShapeTypeRenderer = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.buttonAddShapeType = new System.Windows.Forms.Button();
+            this.buttonAddShapeTypeRenderer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShapeTypesRenderers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,24 +51,6 @@
             this.dataGridViewShapeTypesRenderers.Size = new System.Drawing.Size(496, 207);
             this.dataGridViewShapeTypesRenderers.TabIndex = 0;
             // 
-            // buttonAddShapeType
-            // 
-            this.buttonAddShapeType.Location = new System.Drawing.Point(157, 225);
-            this.buttonAddShapeType.Name = "buttonAddShapeType";
-            this.buttonAddShapeType.Size = new System.Drawing.Size(200, 37);
-            this.buttonAddShapeType.TabIndex = 1;
-            this.buttonAddShapeType.Text = "Add shape type";
-            this.buttonAddShapeType.UseVisualStyleBackColor = true;
-            // 
-            // buttonAddShapeTypeRenderer
-            // 
-            this.buttonAddShapeTypeRenderer.Location = new System.Drawing.Point(157, 268);
-            this.buttonAddShapeTypeRenderer.Name = "buttonAddShapeTypeRenderer";
-            this.buttonAddShapeTypeRenderer.Size = new System.Drawing.Size(200, 37);
-            this.buttonAddShapeTypeRenderer.TabIndex = 2;
-            this.buttonAddShapeTypeRenderer.Text = "Add shape type renderer";
-            this.buttonAddShapeTypeRenderer.UseVisualStyleBackColor = true;
-            // 
             // ShapeType
             // 
             this.ShapeType.HeaderText = "Shape type";
@@ -82,6 +64,26 @@
             this.ShapeTypeRenderer.Name = "ShapeTypeRenderer";
             this.ShapeTypeRenderer.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.ShapeTypeRenderer.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // buttonAddShapeType
+            // 
+            this.buttonAddShapeType.Location = new System.Drawing.Point(157, 225);
+            this.buttonAddShapeType.Name = "buttonAddShapeType";
+            this.buttonAddShapeType.Size = new System.Drawing.Size(200, 37);
+            this.buttonAddShapeType.TabIndex = 1;
+            this.buttonAddShapeType.Text = "Add shape type";
+            this.buttonAddShapeType.UseVisualStyleBackColor = true;
+            this.buttonAddShapeType.Click += new System.EventHandler(this.buttonAddShapeType_Click);
+            // 
+            // buttonAddShapeTypeRenderer
+            // 
+            this.buttonAddShapeTypeRenderer.Location = new System.Drawing.Point(157, 268);
+            this.buttonAddShapeTypeRenderer.Name = "buttonAddShapeTypeRenderer";
+            this.buttonAddShapeTypeRenderer.Size = new System.Drawing.Size(200, 37);
+            this.buttonAddShapeTypeRenderer.TabIndex = 2;
+            this.buttonAddShapeTypeRenderer.Text = "Add shape type renderer";
+            this.buttonAddShapeTypeRenderer.UseVisualStyleBackColor = true;
+            this.buttonAddShapeTypeRenderer.Click += new System.EventHandler(this.buttonAddShapeTypeRenderer_Click);
             // 
             // FormSettings
             // 

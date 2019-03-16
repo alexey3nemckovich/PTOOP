@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 namespace GraphicsEditor.Shapes
 {
+    [Serializable]
     class Circle : Ellipse
     {
         public Circle(string typeName, List<Point> points, Color color)

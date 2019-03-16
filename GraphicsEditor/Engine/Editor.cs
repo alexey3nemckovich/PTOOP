@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Reflection;
 using GraphicsEditor.ShapeCreators;
 using GraphicsEditor.ShapeRenderers;
+using GraphicsEditor.Shapes;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace GraphicsEditor.Engine
 {
@@ -55,9 +58,43 @@ namespace GraphicsEditor.Engine
             }
         }
 
-        public void LoadShape(string filePath)
+        public bool LoadShape(string filePath)
         {
+            BinaryFormatter formatter = new BinaryFormatter();
+            using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate))
+            {
+                Shape shape = (Shape)formatter.Deserialize(fs);
 
+                if(null != shape)
+                {
+                    ListOfShapes.AddShape(shape);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool SaveShape(Shape shape, string dirPath, ref string filePath)
+        {
+            var shapeFiles = new HashSet<string>(Directory.GetFiles(dirPath, "*.shape"));
+
+            int i = 0;
+            do
+            {
+                filePath = dirPath + "\\" + i + ".shape";
+                i++;
+            } while (shapeFiles.Contains(filePath));
+
+            BinaryFormatter formatter = new BinaryFormatter();
+            using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate))
+            {
+                formatter.Serialize(fs, shape);
+            }
+
+            return true;
         }
 
         public bool LoadShapeType(string filePath, ref string shapeTypeLoaded)

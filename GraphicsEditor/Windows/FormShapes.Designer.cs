@@ -51,6 +51,7 @@
             this.ShapePoints,
             this.ShapeColor});
             this.dataGridViewShapes.Location = new System.Drawing.Point(12, 12);
+            this.dataGridViewShapes.MultiSelect = false;
             this.dataGridViewShapes.Name = "dataGridViewShapes";
             this.dataGridViewShapes.ReadOnly = true;
             this.dataGridViewShapes.RowTemplate.Height = 50;
