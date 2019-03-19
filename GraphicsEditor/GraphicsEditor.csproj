@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GraphicsEditor</RootNamespace>
     <AssemblyName>GraphicsEditor</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,8 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,11 +48,19 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Engine\Editor.cs" />
     <Compile Include="Engine\Settings.cs" />
     <Compile Include="Engine\Plugin.cs" />
+    <Compile Include="Serialization\Impl\BinarySerializator.cs" />
+    <Compile Include="Serialization\Impl\BsonSerializator.cs" />
+    <Compile Include="Serialization\Impl\JsonSerializator.cs" />
+    <Compile Include="Serialization\SerializationFormat.cs" />
+    <Compile Include="Serialization\SerializationManager.cs" />
+    <Compile Include="Serialization\Serializator.cs" />
+    <Compile Include="Serialization\Impl\XmlSerializator.cs" />
     <Compile Include="ShapeCreators\CircleCreator.cs" />
     <Compile Include="ShapeCreators\EllipseCreator.cs" />
     <Compile Include="ShapeCreators\IShapeCreator.cs" />
@@ -54,7 +68,13 @@
     <Compile Include="ShapeCreators\RectangleCreator.cs" />
     <Compile Include="ShapeCreators\SquareCreator.cs" />
     <Compile Include="ShapeCreators\TriangleCreator.cs" />
-    <Compile Include="Windows\Common.cs" />
+    <Compile Include="Common\Common.cs" />
+    <Compile Include="Windows\FormSaveShapeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\FormSaveShapeList.Designer.cs">
+      <DependentUpon>FormSaveShapeList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\FormEditShapeCoordinates.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +136,9 @@
     <EmbeddedResource Include="Windows\FormAddShape.resx">
       <DependentUpon>FormAddShape.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Windows\FormSaveShapeList.resx">
+      <DependentUpon>FormSaveShapeList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\FormEditShapeCoordinates.resx">
       <DependentUpon>FormEditShapeCoordinates.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,6 +153,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Windows\FormPluginsSettings.resx">
       <DependentUpon>FormPluginsSettings.cs</DependentUpon>
@@ -143,6 +167,7 @@
     <EmbeddedResource Include="Windows\FormTunePlugin.resx">
       <DependentUpon>FormTunePlugin.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -156,6 +181,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

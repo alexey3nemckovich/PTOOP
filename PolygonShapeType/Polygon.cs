@@ -13,7 +13,7 @@ namespace PolygonShapeType
 
         }
 
-        public Polygon(string typeName, List<Point> points, Color color)
+        public Polygon(string typeName, Point[] points, Color color)
             : base(typeName, points, color)
         {
 

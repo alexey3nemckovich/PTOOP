@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Collections.Generic;
 using System.Reflection;
 using GraphicsEditor.ShapeCreators;
@@ -6,6 +7,8 @@ using GraphicsEditor.ShapeRenderers;
 using GraphicsEditor.Shapes;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using GraphicsEditor.Serialization;
+using System.Text.RegularExpressions;
 
 namespace GraphicsEditor.Engine
 {
@@ -42,7 +45,7 @@ namespace GraphicsEditor.Engine
             ListOfShapes.Clear();
         }
 
-        public bool CreateShape(string shapeType, List<Point> definingPoints, Color color)
+        public bool CreateShape(string shapeType, Point[] definingPoints, Color color)
         {
             ShapeCreators.IShapeCreator shapeTypeCreator = Settings.GetCreatorForShapeType(shapeType);
             if(null != shapeTypeCreator)
@@ -58,43 +61,65 @@ namespace GraphicsEditor.Engine
             }
         }
 
-        public bool LoadShape(string filePath)
+        public bool LoadShapeList(string filePath)
         {
-            BinaryFormatter formatter = new BinaryFormatter();
-            using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate))
+            string formatName = Path.GetExtension(filePath);
+            if(formatName.Length > 1)
             {
-                Shape shape = (Shape)formatter.Deserialize(fs);
+                formatName = formatName.Substring(1);
+            }
 
-                if(null != shape)
+            SerializationFormat serializationFormat = SerializationFormat.Binary;
+            if(Common.GetSerializationFormatByName(formatName, ref serializationFormat))
+            {
+                ISerializator serializator = SerializationManager.getInstance().GetSerializatorForFormat(serializationFormat);
+
+                if(null != serializator)
                 {
-                    ListOfShapes.AddShape(shape);
-                    return true;
-                }
-                else
-                {
-                    return false;
+                    using (FileStream fileStream = new FileStream(filePath, FileMode.Open))
+                    {
+                        ListOfShapes loadedShapeList = serializator.Deserialize<ListOfShapes>(fileStream);
+
+                        if(null != loadedShapeList)
+                        {
+                            foreach (Shape shape in loadedShapeList.Shapes)
+                            {
+                                ListOfShapes.AddShape(shape);
+                            }
+
+                            return true;
+                        }
+                    }
                 }
             }
+
+            return false;
         }
 
-        public bool SaveShape(Shape shape, string dirPath, ref string filePath)
+        public bool SaveShapeList(SerializationFormat format, string dirPath, ref string filePath)
         {
-            var shapeFiles = new HashSet<string>(Directory.GetFiles(dirPath, "*.shape"));
+            string extension = format.ToString();
+            var shapeFilesOfSelectedFormat = new HashSet<string>(Directory.GetFiles(dirPath, "*." + extension));
 
             int i = 0;
             do
             {
-                filePath = dirPath + "\\" + i + ".shape";
+                filePath = dirPath + "\\" + "shape_" + i + "." + format.ToString();
                 i++;
-            } while (shapeFiles.Contains(filePath));
+            } while (shapeFilesOfSelectedFormat.Contains(filePath));
 
-            BinaryFormatter formatter = new BinaryFormatter();
-            using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate))
+            ISerializator serializator = SerializationManager.getInstance().GetSerializatorForFormat(format);
+            if (null != serializator)
             {
-                formatter.Serialize(fs, shape);
+                using (FileStream fileStream = new FileStream(filePath, FileMode.OpenOrCreate))
+                {
+                    serializator.Serialize(fileStream, ListOfShapes);
+                }
+
+                return true;
             }
 
-            return true;
+            return false;
         }
 
         public bool LoadShapeType(string filePath, ref string shapeTypeLoaded)

@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 using System;
+using System.Xml.Serialization;
 
 namespace GraphicsEditor.Shapes
 {
     [Serializable]
-    class Rectangle : Shape
+    [XmlRoot]
+    public class Rectangle : Shape
     {
         private int width;
         private int height;
@@ -15,7 +17,7 @@ namespace GraphicsEditor.Shapes
 
         }
 
-        public Rectangle(string typeName, List<Point> points, Color color)
+        public Rectangle(string typeName, Point[] points, Color color)
             : base(typeName, points, color)
         {
             this.width = Math.Abs(Points[0].X - Points[1].X);

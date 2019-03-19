@@ -1,10 +1,16 @@
 ﻿using System;
 using System.Drawing;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
+using System.Xml.Serialization;
+using System.IO;
+using GraphicsEditor.Serialization;
 
 namespace GraphicsEditor.Shapes
 {
+    [DataContract]
     [Serializable]
+    [XmlRoot]
     public abstract class Shape
     {
         public Shape()
@@ -12,19 +18,24 @@ namespace GraphicsEditor.Shapes
 
         }
 
-        public Shape(string typeName, List<Point> points, Color color)
+        public Shape(string typeName, Point[] points, Color color)
         {
             this.TypeName = typeName;
             this.Points = points;
             this.Color = color;
-            //this.Pen = new Pen(penColor);
-            //this.Brush = new SolidBrush(brushColor);
         }
 
-        public string TypeName { get; }
+        [DataMember]
+        [XmlElement]
+        public string TypeName { get; set; }
 
-        public List<Point> Points { get; set; }
+        [DataMember]
+        [XmlElement]
+        public Point[] Points { get; set; }
 
+        [DataMember]
+        [XmlElement(Type = typeof(XmlColor))]
         public Color Color { get; set; }
+
     }
 }

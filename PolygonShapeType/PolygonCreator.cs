@@ -21,7 +21,7 @@ namespace PolygonShapeType
             return instance;
         }
 
-        public Shape Create(List<Point> points, Color color)
+        public Shape Create(Point[] points, Color color)
         {
             return new Polygon(ShapeTypeName(), points, color);
         }

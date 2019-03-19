@@ -37,7 +37,7 @@ namespace StandardPolygonRenderer
 
             g.FillPolygon(
                 new SolidBrush(polygon.Color),
-                polygon.Points.ToArray());
+                polygon.Points);
         }
     }
 }

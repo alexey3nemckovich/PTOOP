@@ -1,30 +1,50 @@
 ﻿using GraphicsEditor.Shapes;
 using System.Collections.Generic;
+using System;
 
 namespace GraphicsEditor.Engine
 {
-    class ListOfShapes
+    [Serializable]
+    public class ListOfShapes
     {
-        public List<Shape> Shapes { get; }
+        public Shape[] Shapes { get; set; }
 
         public ListOfShapes()
         {
-            Shapes = new List<Shape>();
+            Clear();
         }
 
         public void Clear()
         {
-            Shapes.Clear();
+            Shapes = new Shape[0];
         }
 
         public void AddShape(Shape shape)
         {
-            Shapes.Add(shape);
+            List<Shape> shapesList = new List<Shape>(Shapes);
+
+            shapesList.Add(shape);
+
+            Shapes = shapesList.ToArray();
         }
 
         public void RemoveShape(Shape shape)
         {
-            Shapes.Remove(shape);
+            List<Shape> shapesList = new List<Shape>(Shapes);
+
+            shapesList.Remove(shape);
+
+            Shapes = shapesList.ToArray();
+        }
+
+        [Serializable]
+        protected struct SerializeInfo
+        {
+            public int combatUnitListCount;
+            public SerializeInfo(int combatUnitListCount)
+            {
+                this.combatUnitListCount = combatUnitListCount;
+            }
         }
     }
 }

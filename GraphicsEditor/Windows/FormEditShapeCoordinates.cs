@@ -42,7 +42,7 @@ namespace GraphicsEditor.Windows
                     points.Add(new Point(x, y));
                 }
 
-                shape.Points = points;
+                shape.Points = points.ToArray();
 
                 MessageBox.Show(
                         "New coordinates saved",

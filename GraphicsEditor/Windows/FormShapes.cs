@@ -44,11 +44,11 @@ namespace GraphicsEditor
             return name;
         }
 
-        private string ListOfPoints(List<Point> points)
+        private string ListOfPoints(Point[] points)
         {
             StringBuilder sb = new StringBuilder();
 
-            for (int i = 0; i < points.Count; i++)
+            for (int i = 0; i < points.Length; i++)
             {
                 sb.Append("(");
                 sb.Append(points[i].X);
@@ -56,7 +56,7 @@ namespace GraphicsEditor
                 sb.Append(points[i].Y);
                 sb.Append(")");
 
-                if((points.Count - 1) != i)
+                if((points.Length - 1) != i)
                 {
                     sb.Append(", ");
                 }
@@ -69,7 +69,7 @@ namespace GraphicsEditor
         {
             var shapes = Editor.getInstance().ListOfShapes.Shapes;
 
-            for(int i = 0; i < shapes.Count; i++)
+            for(int i = 0; i < shapes.Length; i++)
             {
                 dataGridViewShapes.Rows.Add(
                     shapes[i].TypeName, ListOfPoints(shapes[i].Points));
@@ -100,39 +100,14 @@ namespace GraphicsEditor
             }
         }
 
-        private void buttonSaveShape_Click(object sender, EventArgs e)
+        private void buttonSaveShapeList_Click(object sender, EventArgs e)
         {
-            string dirPath = "";
-            if (Utils.selectFolder(ref dirPath))
-            {
-                foreach (DataGridViewRow row in dataGridViewShapes.SelectedRows)
-                {
-                    Shape shape = (Shape)row.Tag;
-
-                    string filePath = "";
-                    if(Editor.getInstance().SaveShape(shape, dirPath, ref filePath))
-                    {
-                        MessageBox.Show(
-                            "Shape successfully stored to '" + filePath + "'",
-                            "",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.None);
-                    }
-                    else
-                    {
-                        MessageBox.Show(
-                            "Failed to load save shape",
-                            "",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-                    }
-                }
-            }
+            Common.SaveShapeList();
         }
 
-        private void buttonLoadShape_Click(object sender, EventArgs e)
+        private void buttonLoadShapeList_Click(object sender, EventArgs e)
         {
-            Common.LoadShape();
+            Common.LoadShapeList();
         }
 
         private bool selectFolder(string filter, ref string path)

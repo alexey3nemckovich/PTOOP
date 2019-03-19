@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Drawing;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace GraphicsEditor.Shapes
 {
     [Serializable]
-    class Line : Shape
+    [XmlRoot]
+    public class Line : Shape
     {
         public Line()
         {
 
         }
 
-        public Line(string typeName, List<Point> points, Color color):
+        public Line(string typeName, Point[] points, Color color):
             base(typeName, points, color)
         {
 

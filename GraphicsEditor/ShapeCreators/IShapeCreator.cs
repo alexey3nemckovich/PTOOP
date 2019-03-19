@@ -6,7 +6,7 @@ namespace GraphicsEditor.ShapeCreators
 {
     public interface IShapeCreator
     {
-        Shape Create(List<Point> points, Color color);
+        Shape Create(Point[] points, Color color);
 
         int CountDefiningShapePoints();
 

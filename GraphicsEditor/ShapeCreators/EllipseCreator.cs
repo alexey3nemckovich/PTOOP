@@ -20,7 +20,7 @@ namespace GraphicsEditor.ShapeCreators
             return instance;
         }
 
-        public Shape Create(List<Point> points, Color color)
+        public Shape Create(Point[] points, Color color)
         {
             return new Ellipse(ShapeTypeName(), points, color);
         }

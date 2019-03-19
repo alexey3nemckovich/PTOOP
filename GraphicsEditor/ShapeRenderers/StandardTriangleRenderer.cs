@@ -36,7 +36,7 @@ namespace GraphicsEditor.ShapeRenderers
 
             g.FillPolygon(
                 new SolidBrush(triangle.Color),
-                triangle.Points.ToArray());
+                triangle.Points);
         }
     }
 }

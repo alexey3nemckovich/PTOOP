@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Collections.Generic;
 using GraphicsEditor.Engine;
+using GraphicsEditor.Shapes;
 
 namespace GraphicsEditor.Windows
 {
@@ -78,7 +79,7 @@ namespace GraphicsEditor.Windows
                 if ((countDefiningPoints == points.Count) ||
                     (MouseButtons.Right == e.Button && -1 == countDefiningPoints && points.Count > 2))
                 {
-                    Editor.getInstance().CreateShape(shapeType, points, shapeColor);
+                    Editor.getInstance().CreateShape(shapeType, points.ToArray(), shapeColor);
 
                     RedrawPanel();
                 }
@@ -90,8 +91,8 @@ namespace GraphicsEditor.Windows
             g = panelDraw.CreateGraphics();
             g.Clear(Color.White);
 
-            List<Shapes.Shape> shapes = Editor.getInstance().ListOfShapes.Shapes;
-            foreach (Shapes.Shape shape in shapes)
+            var shapes = Editor.getInstance().ListOfShapes.Shapes;
+            foreach (Shape shape in shapes)
             {
                 ShapeRenderers.IShapeRenderer shapeRenderer =
                     Editor.getInstance().Settings.GetCurrentRendererForShapeType(shape.TypeName);
@@ -104,23 +105,6 @@ namespace GraphicsEditor.Windows
 
             points = new List<Point>();
             isDrawing = false;
-        }
-
-        private void toolStripButtonLoadShapeType_Click(object sender, System.EventArgs e)
-        {
-            Common.LoadShapeType();
-        }
-
-        private void toolStripLoadShape_Click(object sender, System.EventArgs e)
-        {
-            Common.LoadShape();
-
-            RedrawPanel();
-        }
-
-        private void toolStripButtonLoadShapeTypeRenderer_Click(object sender, System.EventArgs e)
-        {
-            Common.LoadShapeTypeRenderer();
         }
 
         private void toolStripButtonPlugins_Click(object sender, System.EventArgs e)
