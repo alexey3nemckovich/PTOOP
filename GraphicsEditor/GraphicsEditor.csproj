@@ -51,7 +51,9 @@
     <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Utils.cs" />
     <Compile Include="Engine\Editor.cs" />
+    <Compile Include="Engine\PluginParameter.cs" />
     <Compile Include="Engine\Settings.cs" />
     <Compile Include="Engine\Plugin.cs" />
     <Compile Include="Serialization\Impl\BinarySerializator.cs" />

@@ -1,6 +1,6 @@
 ﻿namespace GraphicsEditor.Serialization
 {
-    enum SerializationFormat
+    public enum SerializationFormat
     {
         XML,
         Binary,

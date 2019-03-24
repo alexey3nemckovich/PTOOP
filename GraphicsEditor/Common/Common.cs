@@ -12,9 +12,113 @@ namespace GraphicsEditor
     class Common
     {
 
-        public static void LoadShapeList()
+        public static void LoadPlugin()
         {
-            string shapePath = "";
+            string dllPath = "";
+            if (Windows.Utils.SelectDllFile(ref dllPath))
+            {
+                string loadedPluginName = "";
+                if (Editor.getInstance().LoadPlugin(dllPath, ref loadedPluginName))
+                {
+                    MessageBox.Show(
+                        "Successfully loaded new plugin '" + loadedPluginName + "'",
+                        "",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.None);
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "Failed to load plugin from file '" + dllPath + "'",
+                        "",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        public static void TunePlugin(string pluginName)
+        {
+            if (Editor.getInstance().Settings.LoadedPlugins.ContainsKey(pluginName))
+            {
+                Plugin plugin = Editor.getInstance().Settings.LoadedPlugins[pluginName];
+
+                if (0 == plugin.ParametersInfo.Count)
+                {
+                    MessageBox.Show(
+                        "Plugin '" + plugin.Name() + "' doesn't have any parameters for tune.",
+                        "",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.None);
+                }
+                else
+                {
+                    FormTunePlugin formTunePlugin = new FormTunePlugin(plugin);
+                    formTunePlugin.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Plugin '" + pluginName + "' was not found!",
+                    "",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        public static bool ApplyPlugin(string pluginName)
+        {
+            if (Editor.getInstance().Settings.LoadedPlugins.ContainsKey(pluginName))
+            {
+                Editor.getInstance().ApplyPlugin(pluginName);
+                return true;
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Plugin '" + pluginName + "' was not found!",
+                    "",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+            return false;
+        }
+
+        public static bool UnapplyPlugin(string pluginName)
+        {
+            if (Editor.getInstance().Settings.LoadedPlugins.ContainsKey(pluginName))
+            {
+                Editor.getInstance().UnapplyPlugin(pluginName);
+                return true;
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Plugin '" + pluginName + "' was not found!",
+                    "",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+            return false;
+        }
+
+        public static bool RemovePlugin(string pluginName)
+        {
+            if (Editor.getInstance().Settings.LoadedPlugins.ContainsKey(pluginName))
+            {
+                Editor.getInstance().RemovePlugin(pluginName);
+                return true;
+            }
+
+            return false;
+        }
+
+        public static bool LoadShapeList()
+        {
+            string filePath = "";
 
             string supprotedFormats = "Shape list files (";
 
@@ -42,25 +146,30 @@ namespace GraphicsEditor
                 }
             }
 
-            if (Utils.selectFile(supprotedFormats, ref shapePath))
+            if (Windows.Utils.SelectFile(supprotedFormats, ref filePath))
             {
-                if (Editor.getInstance().LoadShapeList(shapePath))
+                string errMessage = "";
+                if (Editor.getInstance().LoadShapeList(filePath, ref errMessage))
                 {
                     MessageBox.Show(
                         "Successfully loaded new shape",
                         "",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.None);
+
+                    return true;
                 }
                 else
                 {
                     MessageBox.Show(
-                        "Failed to load shape",
+                        errMessage,
                         "",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                 }
             }
+
+            return false;
         }
 
         public static void SaveShapeList()
@@ -101,7 +210,7 @@ namespace GraphicsEditor
         public static void LoadShapeType()
         {
             string dllPath = "";
-            if (Utils.selectFile("Dll files (*.dll)|*.dll", ref dllPath))
+            if (Windows.Utils.SelectDllFile(ref dllPath))
             {
                 string newShapeTypeName = "";
 
@@ -127,7 +236,7 @@ namespace GraphicsEditor
         public static void LoadShapeTypeRenderer()
         {
             string dllPath = "";
-            if (Utils.selectFile("Dll files (*.dll)|*.dll", ref dllPath))
+            if (Windows.Utils.SelectDllFile(ref dllPath))
             {
                 string newRendererName = "";
 

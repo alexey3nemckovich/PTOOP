@@ -23,7 +23,7 @@ namespace GraphicsEditor.Windows
         private void buttonSave_Click(object sender, EventArgs e)
         {
             string dirPath = "";
-            if (Utils.selectFolder(ref dirPath))
+            if (Utils.SelectFolder(ref dirPath))
             {
                 string selectedFormatName = comboBoxSerializationFormats.SelectedItem.ToString();
                 SerializationFormat serializationFormat = SerializationFormat.Binary;

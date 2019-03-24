@@ -22,7 +22,7 @@ namespace GraphicsEditor
         {
             InitializeComponent();
 
-            LoadShapes();
+            ReloadShapes();
 
             dataGridViewShapes.CellContentClick +=
                 new DataGridViewCellEventHandler(dataGridView_CellContentClick);
@@ -64,8 +64,10 @@ namespace GraphicsEditor
             return sb.ToString();
         }
 
-        private void LoadShapes()
+        private void ReloadShapes()
         {
+            dataGridViewShapes.Rows.Clear();
+
             var shapes = Editor.getInstance().ListOfShapes.Shapes;
 
             for(int i = 0; i < shapes.Length; i++)
@@ -105,7 +107,10 @@ namespace GraphicsEditor
 
         private void buttonLoadShapeList_Click(object sender, EventArgs e)
         {
-            Common.LoadShapeList();
+            if(Common.LoadShapeList())
+            {
+                ReloadShapes();
+            }
         }
 
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.dataGridViewPluginParameters = new System.Windows.Forms.DataGridView();
-            this.buttonSave = new System.Windows.Forms.Button();
             this.ColumnParameter = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnValue = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.buttonSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPluginParameters)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,20 +46,12 @@
             this.dataGridViewPluginParameters.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnParameter,
             this.ColumnValue});
-            this.dataGridViewPluginParameters.Location = new System.Drawing.Point(12, 12);
+            this.dataGridViewPluginParameters.Location = new System.Drawing.Point(16, 15);
+            this.dataGridViewPluginParameters.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridViewPluginParameters.MultiSelect = false;
             this.dataGridViewPluginParameters.Name = "dataGridViewPluginParameters";
-            this.dataGridViewPluginParameters.Size = new System.Drawing.Size(376, 177);
+            this.dataGridViewPluginParameters.Size = new System.Drawing.Size(501, 218);
             this.dataGridViewPluginParameters.TabIndex = 0;
-            // 
-            // buttonSave
-            // 
-            this.buttonSave.Location = new System.Drawing.Point(114, 195);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(170, 39);
-            this.buttonSave.TabIndex = 1;
-            this.buttonSave.Text = "Save";
-            this.buttonSave.UseVisualStyleBackColor = true;
             // 
             // ColumnParameter
             // 
@@ -74,13 +66,25 @@
             this.ColumnValue.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ColumnValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // buttonSave
+            // 
+            this.buttonSave.Location = new System.Drawing.Point(152, 240);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(227, 48);
+            this.buttonSave.TabIndex = 1;
+            this.buttonSave.Text = "Save";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
             // FormTunePlugin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(400, 246);
+            this.ClientSize = new System.Drawing.Size(533, 303);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.dataGridViewPluginParameters);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "FormTunePlugin";
             this.Text = "Tune plugin";

@@ -4,7 +4,12 @@ namespace GraphicsEditor.Windows
 {
     class Utils
     {
-        public static bool selectFile(string filter, ref string path)
+        public static bool SelectDllFile(ref string path)
+        {
+            return SelectFile("Dll files (*.dll)|*.dll", ref path);
+        }
+
+        public static bool SelectFile(string filter, ref string path)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
@@ -23,7 +28,7 @@ namespace GraphicsEditor.Windows
             }
         }
 
-        public static bool selectFolder(ref string path)
+        public static bool SelectFolder(ref string path)
         {
             using (var fbd = new FolderBrowserDialog())
             {

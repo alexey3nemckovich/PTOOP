@@ -6,6 +6,7 @@ using GraphicsEditor.ShapeRenderers;
 using GraphicsEditor.Shapes;
 using System.IO;
 using GraphicsEditor.Serialization;
+using System;
 
 namespace GraphicsEditor.Engine
 {
@@ -34,6 +35,7 @@ namespace GraphicsEditor.Engine
         }
 
         public Settings Settings { get; private set; }
+
         public ListOfShapes ListOfShapes { get; private set; }
 
         public void Reset()
@@ -58,65 +60,132 @@ namespace GraphicsEditor.Engine
             }
         }
 
-        public bool LoadShapeList(string filePath)
+        public bool LoadPlugin(string filePath, ref string loadedPluginName)
         {
-            string formatName = Path.GetExtension(filePath);
-            if(formatName.Length > 1)
+            Plugin newPlugin = GetInstanceOfTypeFromAssembly<Plugin>(filePath);
+
+            if (null != newPlugin)
             {
-                formatName = formatName.Substring(1);
+                Settings.RegisterPlugin(newPlugin);
+                loadedPluginName = newPlugin.Name();
+
+                return true;
             }
-
-            SerializationFormat serializationFormat = SerializationFormat.Binary;
-            if(Common.GetSerializationFormatByName(formatName, ref serializationFormat))
+            else
             {
-                ISerializator serializator = SerializationManager.getInstance().GetSerializatorForFormat(serializationFormat);
+                return false;
+            }
+        }
 
-                if(null != serializator)
+        public void ApplyPlugin(string pluginName)
+        {
+            Plugin plugin = Settings.LoadedPlugins[pluginName];
+            Settings.ApplyPlugin(plugin);
+        }
+
+        public void UnapplyPlugin(string pluginName)
+        {
+            Plugin plugin = Settings.LoadedPlugins[pluginName];
+            Settings.UnapplyPlugin(plugin);
+        }
+
+        public bool LoadShapeList(string filePath, ref string errorMessage)
+        {
+            try
+            {
+                string formatName = Path.GetExtension(filePath);
+                if (formatName.Length > 1)
                 {
-                    using (FileStream fileStream = new FileStream(filePath, FileMode.Open))
-                    {
-                        ListOfShapes loadedShapeList = serializator.Deserialize<ListOfShapes>(fileStream);
+                    formatName = formatName.Substring(1);
+                }
 
-                        if(null != loadedShapeList)
+                SerializationFormat serializationFormat = SerializationFormat.Binary;
+                if (Common.GetSerializationFormatByName(formatName, ref serializationFormat))
+                {
+                    ISerializator serializator = SerializationManager.getInstance().GetSerializatorForFormat(serializationFormat);
+
+                    if (null != serializator)
+                    {
+                        using (FileStream fileStream = new FileStream(filePath, FileMode.Open))
                         {
-                            foreach (Shape shape in loadedShapeList.Shapes)
+                            //plugins work routine
+                            var bytes = Utils.ReadStream(fileStream);
+                            foreach (Plugin plugin in Settings.OrderedAppliedPluginsList)
                             {
-                                ListOfShapes.AddShape(shape);
+                                bytes = plugin.ProcessDataOnLoad(filePath, serializationFormat, bytes);
                             }
 
-                            return true;
+                            //shapes deserealization
+                            using (MemoryStream memoryStream = new MemoryStream(bytes))
+                            {
+                                ListOfShapes loadedShapeList = serializator.Deserialize<ListOfShapes>(memoryStream);
+
+                                if (null != loadedShapeList)
+                                {
+                                    foreach (Shape shape in loadedShapeList.Shapes)
+                                    {
+                                        ListOfShapes.AddShape(shape);
+                                    }
+
+                                    return true;
+                                }
+                            }
                         }
                     }
                 }
-            }
 
-            return false;
+                return false;
+            }
+            catch (Exception e)
+            {
+                errorMessage = e.Message;
+                return false;
+            }
         }
 
-        public bool SaveShapeList(SerializationFormat format, string dirPath, ref string filePath)
+        public bool SaveShapeList(SerializationFormat serializationFormat, string dirPath, ref string filePath)
         {
-            string extension = format.ToString();
+            string extension = serializationFormat.ToString();
             var shapeFilesOfSelectedFormat = new HashSet<string>(Directory.GetFiles(dirPath, "*." + extension));
 
             int i = 0;
             do
             {
-                filePath = dirPath + "\\" + "shape_" + i + "." + format.ToString();
+                filePath = dirPath + "\\" + "shape_" + i + "." + serializationFormat.ToString();
                 i++;
             } while (shapeFilesOfSelectedFormat.Contains(filePath));
 
-            ISerializator serializator = SerializationManager.getInstance().GetSerializatorForFormat(format);
+            ISerializator serializator = SerializationManager.getInstance().GetSerializatorForFormat(serializationFormat);
             if (null != serializator)
             {
-                using (FileStream fileStream = new FileStream(filePath, FileMode.OpenOrCreate))
+                using (MemoryStream memoryStream = new MemoryStream())
                 {
-                    serializator.Serialize(fileStream, ListOfShapes);
+                    serializator.Serialize(memoryStream, ListOfShapes);
+
+                    //plugins work routine
+                    var dataToSave = Utils.ReadStream(memoryStream);
+                    foreach (Plugin plugin in Settings.OrderedAppliedPluginsList)
+                    {
+                        dataToSave = plugin.ProcessDataOnSave(filePath, serializationFormat, dataToSave);
+                    }
+
+                    //save data to file
+                    using (FileStream fileStream = new FileStream(filePath, FileMode.OpenOrCreate))
+                    {
+                        fileStream.Write(dataToSave, 0, dataToSave.Length);
+                    }
                 }
 
                 return true;
             }
 
             return false;
+        }
+
+        public void RemovePlugin(string pluginName)
+        {
+            Plugin plugin = Settings.LoadedPlugins[pluginName];
+            Settings.RemovePlugin(plugin);
         }
 
         public bool LoadShapeType(string filePath, ref string shapeTypeLoaded)
@@ -162,6 +231,19 @@ namespace GraphicsEditor.Engine
                 if (null != type.GetInterface(typeof(T).FullName))
                 {
                     return (T)asm.CreateInstance(type.FullName);
+                }
+
+                System.Type baseType = type.BaseType;
+                while(typeof(object) != baseType)
+                {
+                    if(baseType.FullName == typeof(T).FullName)
+                    {
+                        return (T)asm.CreateInstance(type.FullName);
+                    }
+                    else
+                    {
+                        baseType = baseType.BaseType;
+                    }
                 }
             }
 

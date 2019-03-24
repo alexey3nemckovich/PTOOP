@@ -29,15 +29,15 @@ namespace GraphicsEditor.Engine
 
         public Dictionary<string, ShapeTypeInfo> ShapeTypesInfoMap { get; private set; }
 
-        public Dictionary<string, IPlugin> LoadedPlugins { get; private set; }
+        public Dictionary<string, Plugin> LoadedPlugins { get; private set; }
 
-        public List<IPlugin> OrderedAppliedPluginsList { get; private set; }
+        public List<Plugin> OrderedAppliedPluginsList { get; private set; }
 
         public Settings()
         {
             ShapeTypesInfoMap = new Dictionary<string, ShapeTypeInfo>();
-            LoadedPlugins = new Dictionary<string, IPlugin>();
-            OrderedAppliedPluginsList = new List<IPlugin>();
+            LoadedPlugins = new Dictionary<string, Plugin>();
+            OrderedAppliedPluginsList = new List<Plugin>();
 
             Reset();
         }
@@ -74,14 +74,39 @@ namespace GraphicsEditor.Engine
             }
         }
 
-        public void RegisterPlugin(IPlugin plugin)
+        public void RegisterPlugin(Plugin plugin)
         {
             LoadedPlugins.Add(plugin.Name(), plugin);
         }
 
-        public void SetApplyingPlugins(List<IPlugin> plugins)
+        public void RemovePlugin(Plugin plugin)
         {
-            OrderedAppliedPluginsList = plugins;
+            LoadedPlugins.Remove(plugin.Name());
+            OrderedAppliedPluginsList.Remove(plugin);
+        }
+
+        public void ApplyPlugin(Plugin plugin)
+        {
+            bool bInserted = false;
+
+            for (int i = 0; i < OrderedAppliedPluginsList.Count && !bInserted; i++)
+            {
+                if (OrderedAppliedPluginsList[i].Order() > plugin.Order())
+                {
+                    OrderedAppliedPluginsList.Insert(i, plugin);
+                    bInserted = true;
+                }
+            }
+
+            if (0 == OrderedAppliedPluginsList.Count || !bInserted)
+            {
+                OrderedAppliedPluginsList.Add(plugin);
+            }
+        }
+
+        public void UnapplyPlugin(Plugin plugin)
+        {
+            OrderedAppliedPluginsList.Remove(plugin);
         }
 
         public void SetRendererForShapeType(string shapeTypeName, IShapeRenderer shapeRenderer)

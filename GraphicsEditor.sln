@@ -9,6 +9,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolygonShapeType", "Polygon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StandardPolygonRenderer", "StandardPolygonRenderer\StandardPolygonRenderer.csproj", "{97E12724-5EB4-44E5-ADDD-452933B20204}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchivingPlugin", "ArchivingPlugin\ArchivingPlugin.csproj", "{D21B7E73-2052-4D94-9130-003BEE1F8723}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptionPlugin", "EncryptionPlugin\EncryptionPlugin.csproj", "{4F15385E-DC47-49E2-AAB4-D673EC979633}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckSumPlugin", "CheckSumPlugin\CheckSumPlugin.csproj", "{74BF17CB-B7D6-4AA8-93E2-5AAA4319BE73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlTransformPlugin", "XmlTransformPlugin\XmlTransformPlugin.csproj", "{8E2F02B3-9EB1-4D44-9C81-A8C6BD86FCC5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +35,22 @@ Global
 		{97E12724-5EB4-44E5-ADDD-452933B20204}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97E12724-5EB4-44E5-ADDD-452933B20204}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97E12724-5EB4-44E5-ADDD-452933B20204}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D21B7E73-2052-4D94-9130-003BEE1F8723}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D21B7E73-2052-4D94-9130-003BEE1F8723}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D21B7E73-2052-4D94-9130-003BEE1F8723}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D21B7E73-2052-4D94-9130-003BEE1F8723}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F15385E-DC47-49E2-AAB4-D673EC979633}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F15385E-DC47-49E2-AAB4-D673EC979633}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F15385E-DC47-49E2-AAB4-D673EC979633}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F15385E-DC47-49E2-AAB4-D673EC979633}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74BF17CB-B7D6-4AA8-93E2-5AAA4319BE73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74BF17CB-B7D6-4AA8-93E2-5AAA4319BE73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74BF17CB-B7D6-4AA8-93E2-5AAA4319BE73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74BF17CB-B7D6-4AA8-93E2-5AAA4319BE73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E2F02B3-9EB1-4D44-9C81-A8C6BD86FCC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E2F02B3-9EB1-4D44-9C81-A8C6BD86FCC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E2F02B3-9EB1-4D44-9C81-A8C6BD86FCC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E2F02B3-9EB1-4D44-9C81-A8C6BD86FCC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -28,13 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewPlugins = new System.Windows.Forms.DataGridView();
             this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonLoadPlugin = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ColumnOrderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPluginName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewApplyingPluginsOrder = new System.Windows.Forms.DataGridView();
             this.comboBoxPlugins = new System.Windows.Forms.ComboBox();
             this.buttonApplyPlugin = new System.Windows.Forms.Button();
             this.tabControlPluginsSettings = new System.Windows.Forms.TabControl();
@@ -43,8 +47,10 @@
             this.buttonTunePlugin = new System.Windows.Forms.Button();
             this.tabPageAppliedPluginsOrder = new System.Windows.Forms.TabPage();
             this.buttonDeleteFromApplyingPlugins = new System.Windows.Forms.Button();
+            this.applying_order = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPluginName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPlugins)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewApplyingPluginsOrder)).BeginInit();
             this.tabControlPluginsSettings.SuspendLayout();
             this.tabPageLoadedPlugins.SuspendLayout();
             this.tabPageAppliedPluginsOrder.SuspendLayout();
@@ -57,14 +63,39 @@
             this.dataGridViewPlugins.AllowUserToResizeColumns = false;
             this.dataGridViewPlugins.AllowUserToResizeRows = false;
             this.dataGridViewPlugins.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewPlugins.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewPlugins.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPlugins.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnName,
             this.ColumnDescription});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewPlugins.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewPlugins.Location = new System.Drawing.Point(8, 7);
             this.dataGridViewPlugins.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewPlugins.MultiSelect = false;
             this.dataGridViewPlugins.Name = "dataGridViewPlugins";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewPlugins.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewPlugins.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewPlugins.Size = new System.Drawing.Size(631, 238);
             this.dataGridViewPlugins.TabIndex = 0;
             // 
@@ -89,35 +120,48 @@
             this.buttonLoadPlugin.UseVisualStyleBackColor = true;
             this.buttonLoadPlugin.Click += new System.EventHandler(this.buttonLoadPlugin_Click);
             // 
-            // dataGridView1
+            // dataGridViewApplyingPluginsOrder
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnOrderNumber,
+            this.dataGridViewApplyingPluginsOrder.AllowUserToAddRows = false;
+            this.dataGridViewApplyingPluginsOrder.AllowUserToDeleteRows = false;
+            this.dataGridViewApplyingPluginsOrder.AllowUserToResizeColumns = false;
+            this.dataGridViewApplyingPluginsOrder.AllowUserToResizeRows = false;
+            this.dataGridViewApplyingPluginsOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewApplyingPluginsOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewApplyingPluginsOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewApplyingPluginsOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.applying_order,
             this.ColumnPluginName});
-            this.dataGridView1.Location = new System.Drawing.Point(8, 7);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(631, 238);
-            this.dataGridView1.TabIndex = 4;
-            // 
-            // ColumnOrderNumber
-            // 
-            this.ColumnOrderNumber.HeaderText = "Number";
-            this.ColumnOrderNumber.Name = "ColumnOrderNumber";
-            this.ColumnOrderNumber.ReadOnly = true;
-            // 
-            // ColumnPluginName
-            // 
-            this.ColumnPluginName.HeaderText = "Name";
-            this.ColumnPluginName.Name = "ColumnPluginName";
-            this.ColumnPluginName.ReadOnly = true;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewApplyingPluginsOrder.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridViewApplyingPluginsOrder.Location = new System.Drawing.Point(8, 7);
+            this.dataGridViewApplyingPluginsOrder.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewApplyingPluginsOrder.MultiSelect = false;
+            this.dataGridViewApplyingPluginsOrder.Name = "dataGridViewApplyingPluginsOrder";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewApplyingPluginsOrder.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridViewApplyingPluginsOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewApplyingPluginsOrder.Size = new System.Drawing.Size(631, 238);
+            this.dataGridViewApplyingPluginsOrder.TabIndex = 4;
             // 
             // comboBoxPlugins
             // 
@@ -190,7 +234,7 @@
             // tabPageAppliedPluginsOrder
             // 
             this.tabPageAppliedPluginsOrder.Controls.Add(this.buttonDeleteFromApplyingPlugins);
-            this.tabPageAppliedPluginsOrder.Controls.Add(this.dataGridView1);
+            this.tabPageAppliedPluginsOrder.Controls.Add(this.dataGridViewApplyingPluginsOrder);
             this.tabPageAppliedPluginsOrder.Controls.Add(this.buttonApplyPlugin);
             this.tabPageAppliedPluginsOrder.Controls.Add(this.comboBoxPlugins);
             this.tabPageAppliedPluginsOrder.Location = new System.Drawing.Point(4, 25);
@@ -213,6 +257,18 @@
             this.buttonDeleteFromApplyingPlugins.UseVisualStyleBackColor = true;
             this.buttonDeleteFromApplyingPlugins.Click += new System.EventHandler(this.buttonDeleteFromApplyingPlugins_Click);
             // 
+            // applying_order
+            // 
+            this.applying_order.HeaderText = "Applying order";
+            this.applying_order.Name = "applying_order";
+            this.applying_order.ReadOnly = true;
+            // 
+            // ColumnPluginName
+            // 
+            this.ColumnPluginName.HeaderText = "Name";
+            this.ColumnPluginName.Name = "ColumnPluginName";
+            this.ColumnPluginName.ReadOnly = true;
+            // 
             // FormPluginsSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -224,7 +280,7 @@
             this.Name = "FormPluginsSettings";
             this.Text = "FormPluginsSettings";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPlugins)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewApplyingPluginsOrder)).EndInit();
             this.tabControlPluginsSettings.ResumeLayout(false);
             this.tabPageLoadedPlugins.ResumeLayout(false);
             this.tabPageAppliedPluginsOrder.ResumeLayout(false);
@@ -238,16 +294,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDescription;
         private System.Windows.Forms.Button buttonLoadPlugin;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewApplyingPluginsOrder;
         private System.Windows.Forms.ComboBox comboBoxPlugins;
         private System.Windows.Forms.Button buttonApplyPlugin;
         private System.Windows.Forms.TabControl tabControlPluginsSettings;
         private System.Windows.Forms.TabPage tabPageLoadedPlugins;
         private System.Windows.Forms.TabPage tabPageAppliedPluginsOrder;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnOrderNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPluginName;
         private System.Windows.Forms.Button buttonDeleteFromApplyingPlugins;
         private System.Windows.Forms.Button buttonDeletePlugin;
         private System.Windows.Forms.Button buttonTunePlugin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn applying_order;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPluginName;
     }
 }
