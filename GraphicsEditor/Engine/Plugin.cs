@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace GraphicsEditor.Engine
 {
@@ -11,8 +10,8 @@ namespace GraphicsEditor.Engine
 
         void Process(byte[] data);
 
-        void Tune(Dictionary<String, String> settings);
+        void Tune(Dictionary<string, string> settings);
 
-        Dictionary<String, List<String>> GetParameters();
+        Dictionary<string, List<string>> GetParameters();
     }
 }

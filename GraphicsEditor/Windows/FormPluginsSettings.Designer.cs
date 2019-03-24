@@ -33,16 +33,16 @@
             this.ColumnDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonLoadPlugin = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ColumnOrderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPluginName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comboBoxPlugins = new System.Windows.Forms.ComboBox();
             this.buttonApplyPlugin = new System.Windows.Forms.Button();
             this.tabControlPluginsSettings = new System.Windows.Forms.TabControl();
             this.tabPageLoadedPlugins = new System.Windows.Forms.TabPage();
-            this.tabPageAppliedPluginsOrder = new System.Windows.Forms.TabPage();
-            this.ColumnOrderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPluginName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonDelete = new System.Windows.Forms.Button();
-            this.buttonTunePlugin = new System.Windows.Forms.Button();
             this.buttonDeletePlugin = new System.Windows.Forms.Button();
+            this.buttonTunePlugin = new System.Windows.Forms.Button();
+            this.tabPageAppliedPluginsOrder = new System.Windows.Forms.TabPage();
+            this.buttonDeleteFromApplyingPlugins = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPlugins)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControlPluginsSettings.SuspendLayout();
@@ -61,9 +61,11 @@
             this.dataGridViewPlugins.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnName,
             this.ColumnDescription});
-            this.dataGridViewPlugins.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewPlugins.Location = new System.Drawing.Point(8, 7);
+            this.dataGridViewPlugins.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewPlugins.MultiSelect = false;
             this.dataGridViewPlugins.Name = "dataGridViewPlugins";
-            this.dataGridViewPlugins.Size = new System.Drawing.Size(473, 193);
+            this.dataGridViewPlugins.Size = new System.Drawing.Size(631, 238);
             this.dataGridViewPlugins.TabIndex = 0;
             // 
             // ColumnName
@@ -78,12 +80,14 @@
             // 
             // buttonLoadPlugin
             // 
-            this.buttonLoadPlugin.Location = new System.Drawing.Point(342, 205);
+            this.buttonLoadPlugin.Location = new System.Drawing.Point(456, 252);
+            this.buttonLoadPlugin.Margin = new System.Windows.Forms.Padding(4);
             this.buttonLoadPlugin.Name = "buttonLoadPlugin";
-            this.buttonLoadPlugin.Size = new System.Drawing.Size(139, 40);
+            this.buttonLoadPlugin.Size = new System.Drawing.Size(185, 49);
             this.buttonLoadPlugin.TabIndex = 1;
             this.buttonLoadPlugin.Text = "Load plugin";
             this.buttonLoadPlugin.UseVisualStyleBackColor = true;
+            this.buttonLoadPlugin.Click += new System.EventHandler(this.buttonLoadPlugin_Click);
             // 
             // dataGridView1
             // 
@@ -96,65 +100,12 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnOrderNumber,
             this.ColumnPluginName});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 6);
+            this.dataGridView1.Location = new System.Drawing.Point(8, 7);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(473, 193);
+            this.dataGridView1.Size = new System.Drawing.Size(631, 238);
             this.dataGridView1.TabIndex = 4;
-            // 
-            // comboBoxPlugins
-            // 
-            this.comboBoxPlugins.FormattingEnabled = true;
-            this.comboBoxPlugins.Location = new System.Drawing.Point(50, 205);
-            this.comboBoxPlugins.Name = "comboBoxPlugins";
-            this.comboBoxPlugins.Size = new System.Drawing.Size(178, 21);
-            this.comboBoxPlugins.TabIndex = 5;
-            // 
-            // buttonApplyPlugin
-            // 
-            this.buttonApplyPlugin.Location = new System.Drawing.Point(50, 232);
-            this.buttonApplyPlugin.Name = "buttonApplyPlugin";
-            this.buttonApplyPlugin.Size = new System.Drawing.Size(178, 34);
-            this.buttonApplyPlugin.TabIndex = 6;
-            this.buttonApplyPlugin.Text = "Apply";
-            this.buttonApplyPlugin.UseVisualStyleBackColor = true;
-            // 
-            // tabControlPluginsSettings
-            // 
-            this.tabControlPluginsSettings.Controls.Add(this.tabPageLoadedPlugins);
-            this.tabControlPluginsSettings.Controls.Add(this.tabPageAppliedPluginsOrder);
-            this.tabControlPluginsSettings.Location = new System.Drawing.Point(0, 1);
-            this.tabControlPluginsSettings.Name = "tabControlPluginsSettings";
-            this.tabControlPluginsSettings.SelectedIndex = 0;
-            this.tabControlPluginsSettings.Size = new System.Drawing.Size(499, 295);
-            this.tabControlPluginsSettings.TabIndex = 7;
-            // 
-            // tabPageLoadedPlugins
-            // 
-            this.tabPageLoadedPlugins.Controls.Add(this.buttonDeletePlugin);
-            this.tabPageLoadedPlugins.Controls.Add(this.buttonTunePlugin);
-            this.tabPageLoadedPlugins.Controls.Add(this.dataGridViewPlugins);
-            this.tabPageLoadedPlugins.Controls.Add(this.buttonLoadPlugin);
-            this.tabPageLoadedPlugins.Location = new System.Drawing.Point(4, 22);
-            this.tabPageLoadedPlugins.Name = "tabPageLoadedPlugins";
-            this.tabPageLoadedPlugins.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageLoadedPlugins.Size = new System.Drawing.Size(491, 269);
-            this.tabPageLoadedPlugins.TabIndex = 0;
-            this.tabPageLoadedPlugins.Text = "Loaded plugins";
-            this.tabPageLoadedPlugins.UseVisualStyleBackColor = true;
-            // 
-            // tabPageAppliedPluginsOrder
-            // 
-            this.tabPageAppliedPluginsOrder.Controls.Add(this.buttonDelete);
-            this.tabPageAppliedPluginsOrder.Controls.Add(this.dataGridView1);
-            this.tabPageAppliedPluginsOrder.Controls.Add(this.buttonApplyPlugin);
-            this.tabPageAppliedPluginsOrder.Controls.Add(this.comboBoxPlugins);
-            this.tabPageAppliedPluginsOrder.Location = new System.Drawing.Point(4, 22);
-            this.tabPageAppliedPluginsOrder.Name = "tabPageAppliedPluginsOrder";
-            this.tabPageAppliedPluginsOrder.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAppliedPluginsOrder.Size = new System.Drawing.Size(485, 269);
-            this.tabPageAppliedPluginsOrder.TabIndex = 1;
-            this.tabPageAppliedPluginsOrder.Text = "Applied plugins order";
-            this.tabPageAppliedPluginsOrder.UseVisualStyleBackColor = true;
             // 
             // ColumnOrderNumber
             // 
@@ -168,39 +119,107 @@
             this.ColumnPluginName.Name = "ColumnPluginName";
             this.ColumnPluginName.ReadOnly = true;
             // 
-            // buttonDelete
+            // comboBoxPlugins
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(261, 205);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(171, 61);
-            this.buttonDelete.TabIndex = 7;
-            this.buttonDelete.Text = "Delete from appliying plugins";
-            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.comboBoxPlugins.FormattingEnabled = true;
+            this.comboBoxPlugins.Location = new System.Drawing.Point(67, 252);
+            this.comboBoxPlugins.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxPlugins.Name = "comboBoxPlugins";
+            this.comboBoxPlugins.Size = new System.Drawing.Size(236, 24);
+            this.comboBoxPlugins.TabIndex = 5;
             // 
-            // buttonTunePlugin
+            // buttonApplyPlugin
             // 
-            this.buttonTunePlugin.Location = new System.Drawing.Point(8, 205);
-            this.buttonTunePlugin.Name = "buttonTunePlugin";
-            this.buttonTunePlugin.Size = new System.Drawing.Size(132, 40);
-            this.buttonTunePlugin.TabIndex = 2;
-            this.buttonTunePlugin.Text = "Tune plugin";
-            this.buttonTunePlugin.UseVisualStyleBackColor = true;
+            this.buttonApplyPlugin.Location = new System.Drawing.Point(67, 286);
+            this.buttonApplyPlugin.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonApplyPlugin.Name = "buttonApplyPlugin";
+            this.buttonApplyPlugin.Size = new System.Drawing.Size(237, 42);
+            this.buttonApplyPlugin.TabIndex = 6;
+            this.buttonApplyPlugin.Text = "Apply";
+            this.buttonApplyPlugin.UseVisualStyleBackColor = true;
+            this.buttonApplyPlugin.Click += new System.EventHandler(this.buttonApplyPlugin_Click);
+            // 
+            // tabControlPluginsSettings
+            // 
+            this.tabControlPluginsSettings.Controls.Add(this.tabPageLoadedPlugins);
+            this.tabControlPluginsSettings.Controls.Add(this.tabPageAppliedPluginsOrder);
+            this.tabControlPluginsSettings.Location = new System.Drawing.Point(0, 1);
+            this.tabControlPluginsSettings.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControlPluginsSettings.Name = "tabControlPluginsSettings";
+            this.tabControlPluginsSettings.SelectedIndex = 0;
+            this.tabControlPluginsSettings.Size = new System.Drawing.Size(665, 363);
+            this.tabControlPluginsSettings.TabIndex = 7;
+            // 
+            // tabPageLoadedPlugins
+            // 
+            this.tabPageLoadedPlugins.Controls.Add(this.buttonDeletePlugin);
+            this.tabPageLoadedPlugins.Controls.Add(this.buttonTunePlugin);
+            this.tabPageLoadedPlugins.Controls.Add(this.dataGridViewPlugins);
+            this.tabPageLoadedPlugins.Controls.Add(this.buttonLoadPlugin);
+            this.tabPageLoadedPlugins.Location = new System.Drawing.Point(4, 25);
+            this.tabPageLoadedPlugins.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPageLoadedPlugins.Name = "tabPageLoadedPlugins";
+            this.tabPageLoadedPlugins.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPageLoadedPlugins.Size = new System.Drawing.Size(657, 334);
+            this.tabPageLoadedPlugins.TabIndex = 0;
+            this.tabPageLoadedPlugins.Text = "Loaded plugins";
+            this.tabPageLoadedPlugins.UseVisualStyleBackColor = true;
             // 
             // buttonDeletePlugin
             // 
-            this.buttonDeletePlugin.Location = new System.Drawing.Point(186, 205);
+            this.buttonDeletePlugin.Location = new System.Drawing.Point(248, 252);
+            this.buttonDeletePlugin.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDeletePlugin.Name = "buttonDeletePlugin";
-            this.buttonDeletePlugin.Size = new System.Drawing.Size(120, 40);
+            this.buttonDeletePlugin.Size = new System.Drawing.Size(160, 49);
             this.buttonDeletePlugin.TabIndex = 3;
             this.buttonDeletePlugin.Text = "Delete plugin";
             this.buttonDeletePlugin.UseVisualStyleBackColor = true;
+            this.buttonDeletePlugin.Click += new System.EventHandler(this.buttonDeletePlugin_Click);
+            // 
+            // buttonTunePlugin
+            // 
+            this.buttonTunePlugin.Location = new System.Drawing.Point(11, 252);
+            this.buttonTunePlugin.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonTunePlugin.Name = "buttonTunePlugin";
+            this.buttonTunePlugin.Size = new System.Drawing.Size(176, 49);
+            this.buttonTunePlugin.TabIndex = 2;
+            this.buttonTunePlugin.Text = "Tune plugin";
+            this.buttonTunePlugin.UseVisualStyleBackColor = true;
+            this.buttonTunePlugin.Click += new System.EventHandler(this.buttonTunePlugin_Click);
+            // 
+            // tabPageAppliedPluginsOrder
+            // 
+            this.tabPageAppliedPluginsOrder.Controls.Add(this.buttonDeleteFromApplyingPlugins);
+            this.tabPageAppliedPluginsOrder.Controls.Add(this.dataGridView1);
+            this.tabPageAppliedPluginsOrder.Controls.Add(this.buttonApplyPlugin);
+            this.tabPageAppliedPluginsOrder.Controls.Add(this.comboBoxPlugins);
+            this.tabPageAppliedPluginsOrder.Location = new System.Drawing.Point(4, 25);
+            this.tabPageAppliedPluginsOrder.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPageAppliedPluginsOrder.Name = "tabPageAppliedPluginsOrder";
+            this.tabPageAppliedPluginsOrder.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPageAppliedPluginsOrder.Size = new System.Drawing.Size(657, 334);
+            this.tabPageAppliedPluginsOrder.TabIndex = 1;
+            this.tabPageAppliedPluginsOrder.Text = "Applied plugins order";
+            this.tabPageAppliedPluginsOrder.UseVisualStyleBackColor = true;
+            // 
+            // buttonDeleteFromApplyingPlugins
+            // 
+            this.buttonDeleteFromApplyingPlugins.Location = new System.Drawing.Point(348, 252);
+            this.buttonDeleteFromApplyingPlugins.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDeleteFromApplyingPlugins.Name = "buttonDeleteFromApplyingPlugins";
+            this.buttonDeleteFromApplyingPlugins.Size = new System.Drawing.Size(228, 75);
+            this.buttonDeleteFromApplyingPlugins.TabIndex = 7;
+            this.buttonDeleteFromApplyingPlugins.Text = "Delete from appliying plugins";
+            this.buttonDeleteFromApplyingPlugins.UseVisualStyleBackColor = true;
+            this.buttonDeleteFromApplyingPlugins.Click += new System.EventHandler(this.buttonDeleteFromApplyingPlugins_Click);
             // 
             // FormPluginsSettings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(497, 292);
+            this.ClientSize = new System.Drawing.Size(663, 359);
             this.Controls.Add(this.tabControlPluginsSettings);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FormPluginsSettings";
             this.Text = "FormPluginsSettings";
@@ -227,7 +246,7 @@
         private System.Windows.Forms.TabPage tabPageAppliedPluginsOrder;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnOrderNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPluginName;
-        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonDeleteFromApplyingPlugins;
         private System.Windows.Forms.Button buttonDeletePlugin;
         private System.Windows.Forms.Button buttonTunePlugin;
     }

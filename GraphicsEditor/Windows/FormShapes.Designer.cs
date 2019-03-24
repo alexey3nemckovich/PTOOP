@@ -52,7 +52,7 @@
             this.ShapePoints,
             this.ShapeColor});
             this.dataGridViewShapes.Location = new System.Drawing.Point(16, 15);
-            this.dataGridViewShapes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewShapes.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewShapes.MultiSelect = false;
             this.dataGridViewShapes.Name = "dataGridViewShapes";
             this.dataGridViewShapes.ReadOnly = true;
@@ -87,7 +87,7 @@
             // buttonAddShape
             // 
             this.buttonAddShape.Location = new System.Drawing.Point(16, 292);
-            this.buttonAddShape.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonAddShape.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAddShape.Name = "buttonAddShape";
             this.buttonAddShape.Size = new System.Drawing.Size(133, 42);
             this.buttonAddShape.TabIndex = 1;
@@ -98,7 +98,7 @@
             // buttonDeleteShape
             // 
             this.buttonDeleteShape.Location = new System.Drawing.Point(189, 292);
-            this.buttonDeleteShape.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonDeleteShape.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDeleteShape.Name = "buttonDeleteShape";
             this.buttonDeleteShape.Size = new System.Drawing.Size(133, 42);
             this.buttonDeleteShape.TabIndex = 2;
@@ -109,7 +109,7 @@
             // buttonSaveShapeList
             // 
             this.buttonSaveShapeList.Location = new System.Drawing.Point(371, 292);
-            this.buttonSaveShapeList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonSaveShapeList.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSaveShapeList.Name = "buttonSaveShapeList";
             this.buttonSaveShapeList.Size = new System.Drawing.Size(133, 42);
             this.buttonSaveShapeList.TabIndex = 3;
@@ -120,7 +120,7 @@
             // buttonLoadShapeList
             // 
             this.buttonLoadShapeList.Location = new System.Drawing.Point(549, 292);
-            this.buttonLoadShapeList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonLoadShapeList.Margin = new System.Windows.Forms.Padding(4);
             this.buttonLoadShapeList.Name = "buttonLoadShapeList";
             this.buttonLoadShapeList.Size = new System.Drawing.Size(133, 42);
             this.buttonLoadShapeList.TabIndex = 4;
@@ -139,7 +139,7 @@
             this.Controls.Add(this.buttonAddShape);
             this.Controls.Add(this.dataGridViewShapes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FormShapes";
             this.Text = "Shapes";

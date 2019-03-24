@@ -1,14 +1,11 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Collections.Generic;
 using System.Reflection;
 using GraphicsEditor.ShapeCreators;
 using GraphicsEditor.ShapeRenderers;
 using GraphicsEditor.Shapes;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using GraphicsEditor.Serialization;
-using System.Text.RegularExpressions;
 
 namespace GraphicsEditor.Engine
 {

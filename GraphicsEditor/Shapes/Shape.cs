@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Drawing;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
-using System.IO;
-using GraphicsEditor.Serialization;
 
 namespace GraphicsEditor.Shapes
 {

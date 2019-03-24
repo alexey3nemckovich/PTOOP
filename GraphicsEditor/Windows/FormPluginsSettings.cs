@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace GraphicsEditor.Windows
 {
@@ -15,6 +7,31 @@ namespace GraphicsEditor.Windows
         public FormPluginsSettings()
         {
             InitializeComponent();
+        }
+
+        private void buttonTunePlugin_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void buttonDeletePlugin_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void buttonLoadPlugin_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void buttonApplyPlugin_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void buttonDeleteFromApplyingPlugins_Click(object sender, System.EventArgs e)
+        {
+
         }
     }
 }

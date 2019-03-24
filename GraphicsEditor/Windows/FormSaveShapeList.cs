@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using GraphicsEditor.Shapes;
 using GraphicsEditor.Engine;
 using GraphicsEditor.Serialization;
 

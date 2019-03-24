@@ -1,6 +1,4 @@
-﻿using System;
-using System.Drawing;
-using System.Collections.Generic;
+﻿using System.Drawing;
 using GraphicsEditor.Shapes;
 
 namespace GraphicsEditor.ShapeCreators

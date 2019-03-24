@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -93,11 +92,10 @@ namespace GraphicsEditor
 
         private void buttonDeleteShape_Click(object sender, EventArgs e)
         {
-            foreach(DataGridViewRow row in dataGridViewShapes.SelectedRows)
-            {
-                Editor.getInstance().ListOfShapes.RemoveShape((Shape)row.Tag);
-                dataGridViewShapes.Rows.RemoveAt(row.Index);
-            }
+            DataGridViewRow row = dataGridViewShapes.SelectedRows[0];
+
+            Editor.getInstance().ListOfShapes.RemoveShape((Shape)row.Tag);
+            dataGridViewShapes.Rows.RemoveAt(row.Index);
         }
 
         private void buttonSaveShapeList_Click(object sender, EventArgs e)
@@ -108,24 +106,6 @@ namespace GraphicsEditor
         private void buttonLoadShapeList_Click(object sender, EventArgs e)
         {
             Common.LoadShapeList();
-        }
-
-        private bool selectFolder(string filter, ref string path)
-        {
-            using (var fbd = new FolderBrowserDialog())
-            {
-                DialogResult result = fbd.ShowDialog();
-
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-                {
-                    path = fbd.SelectedPath;
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
         }
 
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
