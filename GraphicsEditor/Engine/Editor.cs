@@ -111,9 +111,9 @@ namespace GraphicsEditor.Engine
                         {
                             //plugins work routine
                             var bytes = Utils.ReadStream(fileStream);
-                            foreach (Plugin plugin in Settings.OrderedAppliedPluginsList)
+                            for(int i = Settings.OrderedAppliedPluginsList.Count - 1; i >= 0; i--)
                             {
-                                bytes = plugin.ProcessDataOnLoad(filePath, serializationFormat, bytes);
+                                bytes = Settings.OrderedAppliedPluginsList[i].ProcessDataOnLoad(filePath, serializationFormat, bytes);
                             }
 
                             //shapes deserealization

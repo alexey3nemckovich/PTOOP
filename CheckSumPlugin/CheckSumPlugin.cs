@@ -25,7 +25,7 @@ namespace CheckSumPlugin
 
         public override int Order()
         {
-            return 0;
+            return 3;
         }
 
         private byte[] CalculateCheckSum(byte[] data)

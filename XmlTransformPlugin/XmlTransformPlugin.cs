@@ -25,7 +25,7 @@ namespace XmlTransformPlugin
 
         public override int Order()
         {
-            return 1;
+            return 0;
         }
 
         public override byte[] ProcessDataOnSave(string path, SerializationFormat serializationFormat, byte[] data)

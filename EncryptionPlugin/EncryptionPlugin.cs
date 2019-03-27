@@ -66,7 +66,7 @@ namespace EncryptionPlugin
 
         public override int Order()
         {
-            return 3;
+            return 1;
         }
 
         public override byte[] ProcessDataOnSave(string path, SerializationFormat serializationFormat, byte[] data)
