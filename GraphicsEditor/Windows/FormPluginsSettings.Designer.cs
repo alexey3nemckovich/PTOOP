@@ -39,6 +39,8 @@
             this.ColumnDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonLoadPlugin = new System.Windows.Forms.Button();
             this.dataGridViewApplyingPluginsOrder = new System.Windows.Forms.DataGridView();
+            this.applying_order = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPluginName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comboBoxPlugins = new System.Windows.Forms.ComboBox();
             this.buttonApplyPlugin = new System.Windows.Forms.Button();
             this.tabControlPluginsSettings = new System.Windows.Forms.TabControl();
@@ -47,8 +49,6 @@
             this.buttonTunePlugin = new System.Windows.Forms.Button();
             this.tabPageAppliedPluginsOrder = new System.Windows.Forms.TabPage();
             this.buttonDeleteFromApplyingPlugins = new System.Windows.Forms.Button();
-            this.applying_order = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPluginName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPlugins)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewApplyingPluginsOrder)).BeginInit();
             this.tabControlPluginsSettings.SuspendLayout();
@@ -163,6 +163,18 @@
             this.dataGridViewApplyingPluginsOrder.Size = new System.Drawing.Size(631, 238);
             this.dataGridViewApplyingPluginsOrder.TabIndex = 4;
             // 
+            // applying_order
+            // 
+            this.applying_order.HeaderText = "Applying order";
+            this.applying_order.Name = "applying_order";
+            this.applying_order.ReadOnly = true;
+            // 
+            // ColumnPluginName
+            // 
+            this.ColumnPluginName.HeaderText = "Name";
+            this.ColumnPluginName.Name = "ColumnPluginName";
+            this.ColumnPluginName.ReadOnly = true;
+            // 
             // comboBoxPlugins
             // 
             this.comboBoxPlugins.FormattingEnabled = true;
@@ -257,24 +269,13 @@
             this.buttonDeleteFromApplyingPlugins.UseVisualStyleBackColor = true;
             this.buttonDeleteFromApplyingPlugins.Click += new System.EventHandler(this.buttonDeleteFromApplyingPlugins_Click);
             // 
-            // applying_order
-            // 
-            this.applying_order.HeaderText = "Applying order";
-            this.applying_order.Name = "applying_order";
-            this.applying_order.ReadOnly = true;
-            // 
-            // ColumnPluginName
-            // 
-            this.ColumnPluginName.HeaderText = "Name";
-            this.ColumnPluginName.Name = "ColumnPluginName";
-            this.ColumnPluginName.ReadOnly = true;
-            // 
             // FormPluginsSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(663, 359);
             this.Controls.Add(this.tabControlPluginsSettings);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FormPluginsSettings";

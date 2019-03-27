@@ -47,7 +47,7 @@
             this.ColumnParameter,
             this.ColumnValue});
             this.dataGridViewPluginParameters.Location = new System.Drawing.Point(16, 15);
-            this.dataGridViewPluginParameters.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewPluginParameters.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewPluginParameters.MultiSelect = false;
             this.dataGridViewPluginParameters.Name = "dataGridViewPluginParameters";
             this.dataGridViewPluginParameters.Size = new System.Drawing.Size(501, 218);
@@ -69,7 +69,7 @@
             // buttonSave
             // 
             this.buttonSave.Location = new System.Drawing.Point(152, 240);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(227, 48);
             this.buttonSave.TabIndex = 1;
@@ -84,7 +84,8 @@
             this.ClientSize = new System.Drawing.Size(533, 303);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.dataGridViewPluginParameters);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FormTunePlugin";
             this.Text = "Tune plugin";

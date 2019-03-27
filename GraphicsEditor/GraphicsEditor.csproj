@@ -59,7 +59,7 @@
     <Compile Include="ShapeCreators\RectangleCreator.cs" />
     <Compile Include="ShapeCreators\SquareCreator.cs" />
     <Compile Include="ShapeCreators\TriangleCreator.cs" />
-    <Compile Include="Common\Common.cs" />
+    <Compile Include="Common\Functionality.cs" />
     <Compile Include="Windows\FormSaveShapeList.cs">
       <SubType>Form</SubType>
     </Compile>

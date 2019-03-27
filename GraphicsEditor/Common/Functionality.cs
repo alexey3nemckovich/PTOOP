@@ -172,8 +172,19 @@ namespace GraphicsEditor
 
         public static void SaveShapeList()
         {
-            FormSaveShapeList formSaveShapeList = new FormSaveShapeList();
-            formSaveShapeList.ShowDialog();
+            if(0 != Editor.getInstance().ListOfShapes.Shapes.Length)
+            {
+                FormSaveShapeList formSaveShapeList = new FormSaveShapeList();
+                formSaveShapeList.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Shapes list is empty.",
+                    "",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.None);
+            }
         }
 
         public static List<string> GetSupportedSerializationFormatsNames()
