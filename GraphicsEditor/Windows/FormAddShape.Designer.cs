@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddShape));
             this.comboBoxAvailableShapeTypes = new System.Windows.Forms.ComboBox();
             this.buttonAddShape = new System.Windows.Forms.Button();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
@@ -38,16 +39,18 @@
             // comboBoxAvailableShapeTypes
             // 
             this.comboBoxAvailableShapeTypes.FormattingEnabled = true;
-            this.comboBoxAvailableShapeTypes.Location = new System.Drawing.Point(12, 12);
+            this.comboBoxAvailableShapeTypes.Location = new System.Drawing.Point(16, 15);
+            this.comboBoxAvailableShapeTypes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxAvailableShapeTypes.Name = "comboBoxAvailableShapeTypes";
-            this.comboBoxAvailableShapeTypes.Size = new System.Drawing.Size(182, 21);
+            this.comboBoxAvailableShapeTypes.Size = new System.Drawing.Size(241, 24);
             this.comboBoxAvailableShapeTypes.TabIndex = 0;
             // 
             // buttonAddShape
             // 
-            this.buttonAddShape.Location = new System.Drawing.Point(53, 73);
+            this.buttonAddShape.Location = new System.Drawing.Point(71, 90);
+            this.buttonAddShape.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonAddShape.Name = "buttonAddShape";
-            this.buttonAddShape.Size = new System.Drawing.Size(95, 23);
+            this.buttonAddShape.Size = new System.Drawing.Size(127, 28);
             this.buttonAddShape.TabIndex = 1;
             this.buttonAddShape.Text = "Add";
             this.buttonAddShape.UseVisualStyleBackColor = true;
@@ -57,18 +60,20 @@
             // 
             this.labelColor.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.labelColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelColor.Location = new System.Drawing.Point(12, 42);
+            this.labelColor.Location = new System.Drawing.Point(16, 52);
+            this.labelColor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelColor.Name = "labelColor";
-            this.labelColor.Size = new System.Drawing.Size(101, 23);
+            this.labelColor.Size = new System.Drawing.Size(134, 28);
             this.labelColor.TabIndex = 2;
             this.labelColor.Text = "Color";
             this.labelColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonChangeColor
             // 
-            this.buttonChangeColor.Location = new System.Drawing.Point(119, 42);
+            this.buttonChangeColor.Location = new System.Drawing.Point(159, 52);
+            this.buttonChangeColor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonChangeColor.Name = "buttonChangeColor";
-            this.buttonChangeColor.Size = new System.Drawing.Size(75, 23);
+            this.buttonChangeColor.Size = new System.Drawing.Size(100, 28);
             this.buttonChangeColor.TabIndex = 3;
             this.buttonChangeColor.Text = "Change";
             this.buttonChangeColor.UseVisualStyleBackColor = true;
@@ -76,14 +81,16 @@
             // 
             // FormAddShape
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(206, 108);
+            this.ClientSize = new System.Drawing.Size(275, 133);
             this.Controls.Add(this.buttonChangeColor);
             this.Controls.Add(this.labelColor);
             this.Controls.Add(this.buttonAddShape);
             this.Controls.Add(this.comboBoxAvailableShapeTypes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormAddShape";

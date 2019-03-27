@@ -106,7 +106,7 @@
             // 
             this.panelDraw.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panelDraw.Location = new System.Drawing.Point(0, 34);
-            this.panelDraw.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelDraw.Margin = new System.Windows.Forms.Padding(4);
             this.panelDraw.Name = "panelDraw";
             this.panelDraw.Size = new System.Drawing.Size(944, 496);
             this.panelDraw.TabIndex = 1;
@@ -119,7 +119,9 @@
             this.ClientSize = new System.Drawing.Size(944, 532);
             this.Controls.Add(this.panelDraw);
             this.Controls.Add(this.toolStrip1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FormGraphicsEditor";
             this.Text = "Graphics Editor";

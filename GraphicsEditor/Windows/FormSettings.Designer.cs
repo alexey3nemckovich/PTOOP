@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSettings));
             this.dataGridViewShapeTypesRenderers = new System.Windows.Forms.DataGridView();
             this.ShapeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ShapeTypeRenderer = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -44,11 +45,12 @@
             this.dataGridViewShapeTypesRenderers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ShapeType,
             this.ShapeTypeRenderer});
-            this.dataGridViewShapeTypesRenderers.Location = new System.Drawing.Point(12, 12);
+            this.dataGridViewShapeTypesRenderers.Location = new System.Drawing.Point(16, 15);
+            this.dataGridViewShapeTypesRenderers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridViewShapeTypesRenderers.Name = "dataGridViewShapeTypesRenderers";
             this.dataGridViewShapeTypesRenderers.RowTemplate.Height = 50;
             this.dataGridViewShapeTypesRenderers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewShapeTypesRenderers.Size = new System.Drawing.Size(496, 207);
+            this.dataGridViewShapeTypesRenderers.Size = new System.Drawing.Size(661, 255);
             this.dataGridViewShapeTypesRenderers.TabIndex = 0;
             // 
             // ShapeType
@@ -67,9 +69,10 @@
             // 
             // buttonAddShapeType
             // 
-            this.buttonAddShapeType.Location = new System.Drawing.Point(157, 225);
+            this.buttonAddShapeType.Location = new System.Drawing.Point(209, 277);
+            this.buttonAddShapeType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonAddShapeType.Name = "buttonAddShapeType";
-            this.buttonAddShapeType.Size = new System.Drawing.Size(200, 37);
+            this.buttonAddShapeType.Size = new System.Drawing.Size(267, 46);
             this.buttonAddShapeType.TabIndex = 1;
             this.buttonAddShapeType.Text = "Add shape type";
             this.buttonAddShapeType.UseVisualStyleBackColor = true;
@@ -77,9 +80,10 @@
             // 
             // buttonAddShapeTypeRenderer
             // 
-            this.buttonAddShapeTypeRenderer.Location = new System.Drawing.Point(157, 268);
+            this.buttonAddShapeTypeRenderer.Location = new System.Drawing.Point(209, 330);
+            this.buttonAddShapeTypeRenderer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonAddShapeTypeRenderer.Name = "buttonAddShapeTypeRenderer";
-            this.buttonAddShapeTypeRenderer.Size = new System.Drawing.Size(200, 37);
+            this.buttonAddShapeTypeRenderer.Size = new System.Drawing.Size(267, 46);
             this.buttonAddShapeTypeRenderer.TabIndex = 2;
             this.buttonAddShapeTypeRenderer.Text = "Add shape type renderer";
             this.buttonAddShapeTypeRenderer.UseVisualStyleBackColor = true;
@@ -87,13 +91,15 @@
             // 
             // FormSettings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(520, 313);
+            this.ClientSize = new System.Drawing.Size(693, 385);
             this.Controls.Add(this.buttonAddShapeTypeRenderer);
             this.Controls.Add(this.buttonAddShapeType);
             this.Controls.Add(this.dataGridViewShapeTypesRenderers);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "FormSettings";
             this.Text = "Settings";

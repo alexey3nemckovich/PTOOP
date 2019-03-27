@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormShapes));
             this.dataGridViewShapes = new System.Windows.Forms.DataGridView();
             this.ShapeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ShapePoints = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -139,6 +140,7 @@
             this.Controls.Add(this.buttonAddShape);
             this.Controls.Add(this.dataGridViewShapes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FormShapes";

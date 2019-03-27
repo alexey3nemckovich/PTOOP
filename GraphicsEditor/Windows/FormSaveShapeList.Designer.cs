@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSaveShapeList));
             this.comboBoxSerializationFormats = new System.Windows.Forms.ComboBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -36,7 +37,7 @@
             // 
             this.comboBoxSerializationFormats.FormattingEnabled = true;
             this.comboBoxSerializationFormats.Location = new System.Drawing.Point(16, 15);
-            this.comboBoxSerializationFormats.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxSerializationFormats.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxSerializationFormats.Name = "comboBoxSerializationFormats";
             this.comboBoxSerializationFormats.Size = new System.Drawing.Size(273, 24);
             this.comboBoxSerializationFormats.TabIndex = 0;
@@ -44,7 +45,7 @@
             // buttonSave
             // 
             this.buttonSave.Location = new System.Drawing.Point(16, 48);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(275, 37);
             this.buttonSave.TabIndex = 1;
@@ -60,7 +61,8 @@
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.comboBoxSerializationFormats);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FormSaveShapeList";
             this.Text = "Saving shape list";
