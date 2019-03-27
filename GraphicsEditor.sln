@@ -28,6 +28,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlTransformPlugin", "XmlTr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{EC282D65-D77D-45BD-B1CC-D797B06EF2F8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SomeFriendPlugin", "SomeFriendPlugin\SomeFriendPlugin.csproj", "{75CDE933-9854-44D8-9306-A81FB0704A6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SomeFriendPluginAdapter", "SomeFriendPluginAdapter\SomeFriendPluginAdapter.csproj", "{EF1E0A91-5DE3-4FD1-8F38-1BC4A9A510F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,6 +70,14 @@ Global
 		{EC282D65-D77D-45BD-B1CC-D797B06EF2F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC282D65-D77D-45BD-B1CC-D797B06EF2F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC282D65-D77D-45BD-B1CC-D797B06EF2F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75CDE933-9854-44D8-9306-A81FB0704A6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75CDE933-9854-44D8-9306-A81FB0704A6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75CDE933-9854-44D8-9306-A81FB0704A6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75CDE933-9854-44D8-9306-A81FB0704A6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF1E0A91-5DE3-4FD1-8F38-1BC4A9A510F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF1E0A91-5DE3-4FD1-8F38-1BC4A9A510F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF1E0A91-5DE3-4FD1-8F38-1BC4A9A510F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF1E0A91-5DE3-4FD1-8F38-1BC4A9A510F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
