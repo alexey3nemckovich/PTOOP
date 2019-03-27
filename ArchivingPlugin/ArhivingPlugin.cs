@@ -4,7 +4,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Collections.Generic;
 using GraphicsEditor.Serialization;
-using GraphicsEditor;
+using GraphicsEditor.Common;
 
 namespace ArchivingPlugin
 {

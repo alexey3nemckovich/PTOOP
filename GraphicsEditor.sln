@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphicsEditor", "GraphicsEditor\GraphicsEditor.csproj", "{FBA54791-3B22-4ED9-9C7B-DE67742C7787}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EC282D65-D77D-45BD-B1CC-D797B06EF2F8} = {EC282D65-D77D-45BD-B1CC-D797B06EF2F8}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolygonShapeType", "PolygonShapeType\PolygonShapeType.csproj", "{428A1955-F5EE-4630-BFA8-B5B9F64ADEB2}"
 EndProject
@@ -12,10 +15,18 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchivingPlugin", "ArchivingPlugin\ArchivingPlugin.csproj", "{D21B7E73-2052-4D94-9130-003BEE1F8723}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptionPlugin", "EncryptionPlugin\EncryptionPlugin.csproj", "{4F15385E-DC47-49E2-AAB4-D673EC979633}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EC282D65-D77D-45BD-B1CC-D797B06EF2F8} = {EC282D65-D77D-45BD-B1CC-D797B06EF2F8}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckSumPlugin", "CheckSumPlugin\CheckSumPlugin.csproj", "{74BF17CB-B7D6-4AA8-93E2-5AAA4319BE73}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EC282D65-D77D-45BD-B1CC-D797B06EF2F8} = {EC282D65-D77D-45BD-B1CC-D797B06EF2F8}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlTransformPlugin", "XmlTransformPlugin\XmlTransformPlugin.csproj", "{8E2F02B3-9EB1-4D44-9C81-A8C6BD86FCC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{EC282D65-D77D-45BD-B1CC-D797B06EF2F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +62,10 @@ Global
 		{8E2F02B3-9EB1-4D44-9C81-A8C6BD86FCC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E2F02B3-9EB1-4D44-9C81-A8C6BD86FCC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E2F02B3-9EB1-4D44-9C81-A8C6BD86FCC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC282D65-D77D-45BD-B1CC-D797B06EF2F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC282D65-D77D-45BD-B1CC-D797B06EF2F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC282D65-D77D-45BD-B1CC-D797B06EF2F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC282D65-D77D-45BD-B1CC-D797B06EF2F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

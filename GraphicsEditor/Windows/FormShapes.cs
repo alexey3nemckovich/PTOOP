@@ -102,12 +102,12 @@ namespace GraphicsEditor
 
         private void buttonSaveShapeList_Click(object sender, EventArgs e)
         {
-            Common.SaveShapeList();
+            Functionality.SaveShapeList();
         }
 
         private void buttonLoadShapeList_Click(object sender, EventArgs e)
         {
-            if(Common.LoadShapeList())
+            if(Functionality.LoadShapeList())
             {
                 ReloadShapes();
             }

@@ -47,9 +47,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GraphicsEditor\GraphicsEditor.csproj">
-      <Project>{fba54791-3b22-4ed9-9c7b-de67742c7787}</Project>
-      <Name>GraphicsEditor</Name>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{ec282d65-d77d-45bd-b1cc-d797b06ef2f8}</Project>
+      <Name>Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

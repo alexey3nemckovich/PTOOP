@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
+using GraphicsEditor.Common;
 
 namespace GraphicsEditor.Shapes
 {

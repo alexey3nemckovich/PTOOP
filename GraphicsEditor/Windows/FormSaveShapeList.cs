@@ -16,7 +16,7 @@ namespace GraphicsEditor.Windows
 
         private void LoadData()
         {
-            comboBoxSerializationFormats.Items.AddRange(Common.GetSupportedSerializationFormatsNames().ToArray());
+            comboBoxSerializationFormats.Items.AddRange(Functionality.GetSupportedSerializationFormatsNames().ToArray());
             comboBoxSerializationFormats.SelectedIndex = 0;
         }
 
@@ -28,7 +28,7 @@ namespace GraphicsEditor.Windows
                 string selectedFormatName = comboBoxSerializationFormats.SelectedItem.ToString();
                 SerializationFormat serializationFormat = SerializationFormat.Binary;
 
-                if(Common.GetSerializationFormatByName(selectedFormatName, ref serializationFormat))
+                if(Functionality.GetSerializationFormatByName(selectedFormatName, ref serializationFormat))
                 {
                     string filePath = "";
                     if (Editor.getInstance().SaveShapeList(serializationFormat, dirPath, ref filePath))

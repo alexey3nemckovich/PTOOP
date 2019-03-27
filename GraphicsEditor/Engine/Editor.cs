@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using GraphicsEditor.ShapeCreators;
 using GraphicsEditor.ShapeRenderers;
+using GraphicsEditor.Common;
 using GraphicsEditor.Shapes;
 using System.IO;
 using GraphicsEditor.Serialization;
@@ -100,7 +101,7 @@ namespace GraphicsEditor.Engine
                 }
 
                 SerializationFormat serializationFormat = SerializationFormat.Binary;
-                if (Common.GetSerializationFormatByName(formatName, ref serializationFormat))
+                if (Functionality.GetSerializationFormatByName(formatName, ref serializationFormat))
                 {
                     ISerializator serializator = SerializationManager.getInstance().GetSerializatorForFormat(serializationFormat);
 

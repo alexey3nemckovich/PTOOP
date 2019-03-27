@@ -1,7 +1,7 @@
 ﻿using GraphicsEditor.Engine;
 using GraphicsEditor.Serialization;
 using System.Collections.Generic;
-using GraphicsEditor;
+using GraphicsEditor.Common;
 
 namespace CheckSumPlugin
 {

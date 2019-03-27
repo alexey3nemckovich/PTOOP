@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GraphicsEditor</RootNamespace>
     <AssemblyName>GraphicsEditor</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -51,21 +51,10 @@
     <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\Utils.cs" />
     <Compile Include="Engine\Editor.cs" />
-    <Compile Include="Engine\PluginParameter.cs" />
     <Compile Include="Engine\Settings.cs" />
-    <Compile Include="Engine\Plugin.cs" />
-    <Compile Include="Serialization\Impl\BinarySerializator.cs" />
-    <Compile Include="Serialization\Impl\BsonSerializator.cs" />
-    <Compile Include="Serialization\Impl\JsonSerializator.cs" />
-    <Compile Include="Serialization\SerializationFormat.cs" />
-    <Compile Include="Serialization\SerializationManager.cs" />
-    <Compile Include="Serialization\Serializator.cs" />
-    <Compile Include="Serialization\Impl\XmlSerializator.cs" />
     <Compile Include="ShapeCreators\CircleCreator.cs" />
     <Compile Include="ShapeCreators\EllipseCreator.cs" />
-    <Compile Include="ShapeCreators\IShapeCreator.cs" />
     <Compile Include="ShapeCreators\LineCreator.cs" />
     <Compile Include="ShapeCreators\RectangleCreator.cs" />
     <Compile Include="ShapeCreators\SquareCreator.cs" />
@@ -118,7 +107,6 @@
     <Compile Include="ShapeRenderers\StandardLineRenderer.cs" />
     <Compile Include="ShapeRenderers\StandardRectangleRenderer.cs" />
     <Compile Include="ShapeRenderers\StandardTriangleRenderer.cs" />
-    <Compile Include="ShapeRenderers\IShapeRenderer.cs" />
     <Compile Include="Windows\FormGraphicsEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,7 +117,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shapes\Circle.cs" />
-    <Compile Include="Shapes\Shape.cs" />
     <Compile Include="Shapes\Ellipse.cs" />
     <Compile Include="Shapes\Line.cs" />
     <Compile Include="Shapes\Rectangle.cs" />
@@ -183,7 +170,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{ec282d65-d77d-45bd-b1cc-d797b06ef2f8}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

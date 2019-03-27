@@ -57,12 +57,12 @@ namespace GraphicsEditor.Windows
 
         private void buttonAddShapeType_Click(object sender, System.EventArgs e)
         {
-            Common.LoadShapeType();
+            Functionality.LoadShapeType();
         }
 
         private void buttonAddShapeTypeRenderer_Click(object sender, System.EventArgs e)
         {
-            Common.LoadShapeTypeRenderer();
+            Functionality.LoadShapeTypeRenderer();
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace GraphicsEditor.Serialization
 {
-    class SerializationManager
+    public class SerializationManager
     {
         private static SerializationManager instance;
 

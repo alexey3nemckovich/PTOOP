@@ -64,7 +64,7 @@ namespace GraphicsEditor.Windows
             {
                 DataGridViewRow row = dataGridViewPlugins.SelectedRows[0];
 
-                Common.TunePlugin((string)row.Cells[0].Value);
+                Functionality.TunePlugin((string)row.Cells[0].Value);
             }
         }
 
@@ -74,7 +74,7 @@ namespace GraphicsEditor.Windows
             {
                 DataGridViewRow row = dataGridViewPlugins.SelectedRows[0];
 
-                if(Common.RemovePlugin((string)row.Cells[0].Value))
+                if(Functionality.RemovePlugin((string)row.Cells[0].Value))
                 {
                     ReloadData();
                 }
@@ -83,7 +83,7 @@ namespace GraphicsEditor.Windows
 
         private void buttonLoadPlugin_Click(object sender, System.EventArgs e)
         {
-            Common.LoadPlugin();
+            Functionality.LoadPlugin();
 
             ReloadData();
         }
@@ -92,7 +92,7 @@ namespace GraphicsEditor.Windows
         {
             if(0 != comboBoxPlugins.Items.Count)
             {
-                if (Common.ApplyPlugin(comboBoxPlugins.SelectedItem.ToString()))
+                if (Functionality.ApplyPlugin(comboBoxPlugins.SelectedItem.ToString()))
                 {
                     ReloadApplyingPluginsTabData();
                 }
@@ -103,7 +103,7 @@ namespace GraphicsEditor.Windows
         {
             if(0 != dataGridViewApplyingPluginsOrder.SelectedRows.Count)
             {
-                if (Common.UnapplyPlugin((string)dataGridViewApplyingPluginsOrder.SelectedRows[0].Cells[1].Value))
+                if (Functionality.UnapplyPlugin((string)dataGridViewApplyingPluginsOrder.SelectedRows[0].Cells[1].Value))
                 {
                     ReloadApplyingPluginsTabData();
                 }

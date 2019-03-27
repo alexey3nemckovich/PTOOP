@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Collections;
 
-namespace GraphicsEditor
+namespace GraphicsEditor.Common
 {
     public class Utils
     {

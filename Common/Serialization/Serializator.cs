@@ -2,7 +2,7 @@
 
 namespace GraphicsEditor.Serialization
 {
-    interface ISerializator
+    public interface ISerializator
     {
         SerializationFormat OutputFormat();
 
