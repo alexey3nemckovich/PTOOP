@@ -224,27 +224,34 @@ namespace GraphicsEditor.Engine
 
         private T GetInstanceOfTypeFromAssembly<T>(string filePath)
         {
-            Assembly asm = Assembly.LoadFrom(filePath);
-
-            foreach (var type in asm.GetTypes())
+            try
             {
-                if (null != type.GetInterface(typeof(T).FullName))
-                {
-                    return (T)asm.CreateInstance(type.FullName);
-                }
+                Assembly asm = Assembly.LoadFrom(filePath);
 
-                System.Type baseType = type.BaseType;
-                while(typeof(object) != baseType)
+                foreach (var type in asm.GetTypes())
                 {
-                    if(baseType.FullName == typeof(T).FullName)
+                    if (null != type.GetInterface(typeof(T).FullName))
                     {
                         return (T)asm.CreateInstance(type.FullName);
                     }
-                    else
+
+                    System.Type baseType = type.BaseType;
+                    while (typeof(object) != baseType)
                     {
-                        baseType = baseType.BaseType;
+                        if (baseType.FullName == typeof(T).FullName)
+                        {
+                            return (T)asm.CreateInstance(type.FullName);
+                        }
+                        else
+                        {
+                            baseType = baseType.BaseType;
+                        }
                     }
                 }
+            }
+            catch(Exception)
+            {
+
             }
 
             return default(T);
