@@ -56,6 +56,12 @@
   <ItemGroup>
     <Compile Include="Engine\Editor.cs" />
     <Compile Include="Engine\Settings.cs" />
+    <Compile Include="Serialization\ShapesTypesBinder.cs" />
+    <Compile Include="Serialization\Impl\BinarySerializator.cs" />
+    <Compile Include="Serialization\Impl\BsonSerializator.cs" />
+    <Compile Include="Serialization\Impl\JsonSerializator.cs" />
+    <Compile Include="Serialization\Impl\XmlSerializator.cs" />
+    <Compile Include="Serialization\SerializationManager.cs" />
     <Compile Include="ShapeCreators\CircleCreator.cs" />
     <Compile Include="ShapeCreators\EllipseCreator.cs" />
     <Compile Include="ShapeCreators\LineCreator.cs" />

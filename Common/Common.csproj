@@ -53,12 +53,7 @@
     <Compile Include="Interfaces\Plugin.cs" />
     <Compile Include="Interfaces\PluginParameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Serialization\Impl\BinarySerializator.cs" />
-    <Compile Include="Serialization\Impl\BsonSerializator.cs" />
-    <Compile Include="Serialization\Impl\JsonSerializator.cs" />
-    <Compile Include="Serialization\Impl\XmlSerializator.cs" />
     <Compile Include="Serialization\SerializationFormat.cs" />
-    <Compile Include="Serialization\SerializationManager.cs" />
     <Compile Include="Serialization\Serializator.cs" />
     <Compile Include="Interfaces\Shape.cs" />
     <Compile Include="Common\Utils.cs" />

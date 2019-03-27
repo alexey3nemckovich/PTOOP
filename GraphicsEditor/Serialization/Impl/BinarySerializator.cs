@@ -12,7 +12,7 @@ namespace GraphicsEditor.Serialization
 
         private BinarySerializator()
         {
-
+            formatter.Binder = ShapesTypesBinder.getInstance();
         }
 
         public static BinarySerializator getInstance()

@@ -12,7 +12,7 @@ namespace GraphicsEditor.Serialization
 
         private XmlSerializator()
         {
-
+            formatter.Binder = ShapesTypesBinder.getInstance();
         }
 
         public static XmlSerializator getInstance()
