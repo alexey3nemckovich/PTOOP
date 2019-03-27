@@ -27,9 +27,11 @@ namespace GraphicsEditor.Serialization
             return SerializationFormat.JSON;
         }
 
+        private static int bufferSize = 10000;
+
         public void Serialize<T>(Stream stream, T obj)
         {
-            using (StreamWriter streamWriter = new StreamWriter(stream))
+            using (StreamWriter streamWriter = new StreamWriter(stream, System.Text.Encoding.Default, bufferSize, true))
             {
                 string json = JsonConvert.SerializeObject(obj, settings);
                 streamWriter.Write(json);
@@ -38,7 +40,7 @@ namespace GraphicsEditor.Serialization
 
         public T Deserialize<T>(Stream stream)
         {
-            using (StreamReader streamReader = new StreamReader(stream))
+            using (StreamReader streamReader = new StreamReader(stream, System.Text.Encoding.Default, false, bufferSize, true))
             {
                 string json = streamReader.ReadToEnd();
                 return JsonConvert.DeserializeObject<T>(json, settings);

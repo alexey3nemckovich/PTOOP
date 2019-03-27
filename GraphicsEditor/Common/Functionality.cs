@@ -216,7 +216,7 @@ namespace GraphicsEditor
             }
         }
 
-        public static void LoadShapeType()
+        public static bool LoadShapeType()
         {
             string dllPath = "";
             if (Windows.Utils.SelectDllFile(ref dllPath))
@@ -230,6 +230,8 @@ namespace GraphicsEditor
                         "",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.None);
+
+                    return true;
                 }
                 else
                 {
@@ -240,9 +242,11 @@ namespace GraphicsEditor
                         MessageBoxIcon.Error);
                 }
             }
+
+            return false;
         }
 
-        public static void LoadShapeTypeRenderer()
+        public static bool LoadShapeTypeRenderer()
         {
             string dllPath = "";
             if (Windows.Utils.SelectDllFile(ref dllPath))
@@ -256,6 +260,8 @@ namespace GraphicsEditor
                         "",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.None);
+
+                    return true;
                 }
                 else
                 {
@@ -266,6 +272,8 @@ namespace GraphicsEditor
                         MessageBoxIcon.Error);
                 }
             }
+
+            return false;
         }
 
     }

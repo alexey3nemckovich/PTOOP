@@ -94,10 +94,13 @@ namespace GraphicsEditor
 
         private void buttonDeleteShape_Click(object sender, EventArgs e)
         {
-            DataGridViewRow row = dataGridViewShapes.SelectedRows[0];
+            if(0 != dataGridViewShapes.Rows.Count)
+            {
+                DataGridViewRow row = dataGridViewShapes.SelectedRows[0];
 
-            Editor.getInstance().ListOfShapes.RemoveShape((Shape)row.Tag);
-            dataGridViewShapes.Rows.RemoveAt(row.Index);
+                Editor.getInstance().ListOfShapes.RemoveShape((Shape)row.Tag);
+                dataGridViewShapes.Rows.RemoveAt(row.Index);
+            }
         }
 
         private void buttonSaveShapeList_Click(object sender, EventArgs e)

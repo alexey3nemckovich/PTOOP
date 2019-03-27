@@ -10,14 +10,16 @@ namespace GraphicsEditor.Windows
         {
             InitializeComponent();
 
-            LoadSettings();
+            ReloadSettings();
 
             dataGridViewShapeTypesRenderers.CellValueChanged += 
                 new DataGridViewCellEventHandler(dataGridViewCellValueChanged);
         }
 
-        private void LoadSettings()
+        private void ReloadSettings()
         {
+            dataGridViewShapeTypesRenderers.Rows.Clear();
+
             var shapeTypesInfoMap = Editor.getInstance().Settings.ShapeTypesInfoMap;
 
             int i = 0;
@@ -48,21 +50,30 @@ namespace GraphicsEditor.Windows
             string shapeTypeName = (string)cellShapeType.Value;
             string rendererName = (string)comboBoxCellRenderer.Value;
 
-            var renderer = Editor.getInstance().Settings.GetRendererForShapeType(shapeTypeName, rendererName);
-            if (null != renderer)
+            if (null != rendererName)
             {
-                Editor.getInstance().Settings.SetRendererForShapeType(shapeTypeName, renderer);
+                var renderer = Editor.getInstance().Settings.GetRendererForShapeType(shapeTypeName, rendererName);
+                if (null != renderer)
+                {
+                    Editor.getInstance().Settings.SetRendererForShapeType(shapeTypeName, renderer);
+                }
             }
         }
 
         private void buttonAddShapeType_Click(object sender, System.EventArgs e)
         {
-            Functionality.LoadShapeType();
+            if(Functionality.LoadShapeType())
+            {
+                ReloadSettings();
+            }
         }
 
         private void buttonAddShapeTypeRenderer_Click(object sender, System.EventArgs e)
         {
-            Functionality.LoadShapeTypeRenderer();
+            if(Functionality.LoadShapeTypeRenderer())
+            {
+                ReloadSettings();
+            }
         }
     }
 }

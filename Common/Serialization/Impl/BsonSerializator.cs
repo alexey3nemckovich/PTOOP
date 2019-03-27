@@ -45,6 +45,7 @@ namespace GraphicsEditor.Serialization
         {
             using (BsonWriter writer = new BsonWriter(stream))
             {
+                writer.CloseOutput = false;
                 serializer.Serialize(writer, obj, typeof(T));
             }
         }
@@ -53,6 +54,7 @@ namespace GraphicsEditor.Serialization
         {
             using (BsonReader reader = new BsonReader(stream))
             {
+                reader.CloseInput = false;
                 return serializer.Deserialize<T>(reader);
             }
         }
