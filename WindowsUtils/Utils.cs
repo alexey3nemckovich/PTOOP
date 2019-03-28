@@ -1,9 +1,10 @@
 ﻿using System.Windows.Forms;
 
-namespace GraphicsEditor.Windows
+namespace Wnds
 {
-    class Utils
+    public class Utils
     {
+
         public static bool SelectDllFile(ref string path)
         {
             return SelectFile("Dll files (*.dll)|*.dll", ref path);

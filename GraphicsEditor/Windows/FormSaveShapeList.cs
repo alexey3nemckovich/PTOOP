@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using GraphicsEditor.Engine;
 using GraphicsEditor.Serialization;
+using Wnds;
 
 namespace GraphicsEditor.Windows
 {

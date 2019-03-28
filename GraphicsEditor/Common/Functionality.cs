@@ -13,21 +13,32 @@ namespace GraphicsEditor
         public static void LoadPlugin()
         {
             string dllPath = "";
-            if (Windows.Utils.SelectDllFile(ref dllPath))
+            if (Wnds.Utils.SelectDllFile(ref dllPath))
             {
                 string loadedPluginName = "";
-                if (Editor.getInstance().LoadPlugin(dllPath, ref loadedPluginName))
+                try
                 {
-                    MessageBox.Show(
-                        "Successfully loaded new plugin '" + loadedPluginName + "'",
-                        "",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.None);
+                    if (Editor.getInstance().LoadPlugin(dllPath, ref loadedPluginName))
+                    {
+                        MessageBox.Show(
+                            "Successfully loaded new plugin '" + loadedPluginName + "'",
+                            "",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.None);
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            "Failed to load plugin from file '" + dllPath + "'",
+                            "",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
                 }
-                else
+                catch(Exception e)
                 {
                     MessageBox.Show(
-                        "Failed to load plugin from file '" + dllPath + "'",
+                        "Failed to load plugin from file '" + dllPath + "': " + e.Message,
                         "",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
@@ -144,7 +155,7 @@ namespace GraphicsEditor
                 }
             }
 
-            if (Windows.Utils.SelectFile(supprotedFormats, ref filePath))
+            if (Wnds.Utils.SelectFile(supprotedFormats, ref filePath))
             {
                 string errMessage = "";
                 if (Editor.getInstance().LoadShapeList(filePath, ref errMessage))
@@ -219,7 +230,7 @@ namespace GraphicsEditor
         public static bool LoadShapeType()
         {
             string dllPath = "";
-            if (Windows.Utils.SelectDllFile(ref dllPath))
+            if (Wnds.Utils.SelectDllFile(ref dllPath))
             {
                 string newShapeTypeName = "";
 
@@ -249,7 +260,7 @@ namespace GraphicsEditor
         public static bool LoadShapeTypeRenderer()
         {
             string dllPath = "";
-            if (Windows.Utils.SelectDllFile(ref dllPath))
+            if (Wnds.Utils.SelectDllFile(ref dllPath))
             {
                 string newRendererName = "";
 

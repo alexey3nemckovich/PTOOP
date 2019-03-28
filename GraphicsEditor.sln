@@ -32,6 +32,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SomeFriendPlugin", "SomeFri
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SomeFriendPluginAdapter", "SomeFriendPluginAdapter\SomeFriendPluginAdapter.csproj", "{EF1E0A91-5DE3-4FD1-8F38-1BC4A9A510F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingingTool", "SingingTool\SingingTool.csproj", "{686F3682-8B3E-49E0-88A5-710D332B3262}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsUtils", "WindowsUtils\WindowsUtils.csproj", "{CE34109B-C3B9-452C-AF0E-3F2128DFB954}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Signing", "Signing\Signing.csproj", "{AF0A26BE-CCAF-4049-8567-77291D60D246}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,6 +84,18 @@ Global
 		{EF1E0A91-5DE3-4FD1-8F38-1BC4A9A510F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF1E0A91-5DE3-4FD1-8F38-1BC4A9A510F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF1E0A91-5DE3-4FD1-8F38-1BC4A9A510F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{686F3682-8B3E-49E0-88A5-710D332B3262}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{686F3682-8B3E-49E0-88A5-710D332B3262}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{686F3682-8B3E-49E0-88A5-710D332B3262}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{686F3682-8B3E-49E0-88A5-710D332B3262}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE34109B-C3B9-452C-AF0E-3F2128DFB954}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE34109B-C3B9-452C-AF0E-3F2128DFB954}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE34109B-C3B9-452C-AF0E-3F2128DFB954}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE34109B-C3B9-452C-AF0E-3F2128DFB954}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF0A26BE-CCAF-4049-8567-77291D60D246}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF0A26BE-CCAF-4049-8567-77291D60D246}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF0A26BE-CCAF-4049-8567-77291D60D246}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF0A26BE-CCAF-4049-8567-77291D60D246}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,6 +8,7 @@ using GraphicsEditor.Shapes;
 using System.IO;
 using GraphicsEditor.Serialization;
 using System;
+using Signing;
 
 namespace GraphicsEditor.Engine
 {
@@ -63,18 +64,33 @@ namespace GraphicsEditor.Engine
 
         public bool LoadPlugin(string filePath, ref string loadedPluginName)
         {
-            Plugin newPlugin = GetInstanceOfTypeFromAssembly<Plugin>(filePath);
+            SigningStatus signingStatus = Signer.getInstance().CheckSignatureForFile(filePath);
 
-            if (null != newPlugin)
+            if(SigningStatus.VALIID_SIGNATURE == signingStatus)
             {
-                Settings.RegisterPlugin(newPlugin);
-                loadedPluginName = newPlugin.Name();
+                Plugin newPlugin = GetInstanceOfTypeFromAssembly<Plugin>(filePath);
 
-                return true;
+                if (null != newPlugin)
+                {
+                    Settings.RegisterPlugin(newPlugin);
+                    loadedPluginName = newPlugin.Name();
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
-                return false;
+                switch(signingStatus)
+                {
+                    case SigningStatus.INVALID_SIGNATURE:
+                        throw new InvalidFileSignatureException();
+                    default:
+                        throw new FileNotSignedException();
+                }
             }
         }
 
