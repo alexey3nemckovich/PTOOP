@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Text;
 using System.Security.Cryptography;
 
@@ -17,7 +18,7 @@ namespace Signing
 
         private Signer()
         {
-
+            CryptingSignature = true;
         }
 
         public static Signer getInstance()
@@ -27,16 +28,18 @@ namespace Signing
             return instance;
         }
 
+        public bool CryptingSignature { get; set; }
+
         public SigningStatus CheckSignatureForFile(string filePath)
         {
             string signatureFilePath = GetSignatureFilePath(filePath);
 
             if (File.Exists(signatureFilePath))
             {
-                Signature storedSignature = ReadSignature(signatureFilePath);
                 Signature actualSignature = CalcSignature(filePath);
+                Signature storedSignature = ReadSignature(signatureFilePath);
 
-                if(storedSignature.Equals(actualSignature))
+                if(actualSignature.Equals(storedSignature))
                 {
                     return SigningStatus.VALIID_SIGNATURE;
                 }
@@ -54,24 +57,46 @@ namespace Signing
         public bool SignFile(string filePath)
         {
             Signature signature = CalcSignature(filePath);
+
             string signatureStr = Serializer.Serialize(signature);
+            byte[] signatureBytes = Encoding.UTF8.GetBytes(signatureStr);
+
+            if(CryptingSignature)
+            {
+                signatureBytes = ProtectedData.Protect(signatureBytes, null, DataProtectionScope.LocalMachine);
+            }
+
             string signatureFilePath = GetSignatureFilePath(filePath);
 
-            File.WriteAllText(signatureFilePath, signatureStr);
-
+            File.WriteAllBytes(signatureFilePath, signatureBytes);
             return true;
+        }
+
+        private Signature ReadSignature(string signatureFilePath)
+        {
+            try
+            {
+                byte[] signatureBytes = File.ReadAllBytes(signatureFilePath);
+
+                if(CryptingSignature)
+                {
+                    signatureBytes = ProtectedData.Unprotect(signatureBytes, null, DataProtectionScope.LocalMachine);
+                }
+                
+                string signatureStr = Encoding.UTF8.GetString(signatureBytes);
+            
+                return Serializer.Deserialize<Signature>(signatureStr);
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
         }
 
         private string GetSignatureFilePath(string filePath)
         {
             string folderPath = Path.GetDirectoryName(filePath);
             return folderPath + "\\.sig";
-        }
-
-        private Signature ReadSignature(string signatureFilePath)
-        {
-            string text = File.ReadAllText(signatureFilePath, Encoding.UTF8);
-            return Serializer.Deserialize<Signature>(text);
         }
 
         private Signature CalcSignature(string filePath)
