@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSigningTool));
             this.buttonSign = new System.Windows.Forms.Button();
             this.textBoxFilePath = new System.Windows.Forms.TextBox();
             this.buttonChooseFile = new System.Windows.Forms.Button();
@@ -91,6 +92,7 @@
             this.Controls.Add(this.textBoxFilePath);
             this.Controls.Add(this.buttonSign);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormSigningTool";
             this.Text = "Signing tool";
